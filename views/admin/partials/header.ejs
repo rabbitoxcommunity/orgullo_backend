@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Orgullo Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="MyraStudio" name="author" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="/images/favicon.png">
+
+        <!-- Plugins css -->
+        <link href="/plugins/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="/plugins/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="/plugins/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="/plugins/datatables/select.bootstrap4.css" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/stylesheets/theme.min.css" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css"
+        integrity="sha512-ngQ4IGzHQ3s/Hh8kMyG4FC74wzitukRMIcTOoKT3EyzFZCILOPF0twiXOQn75eDINUfKBYmzYn2AA8DkAk8veQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+            <div class="header-border"></div>
+            <header id="page-topbar">
+                <div class="navbar-header">
+
+                    <div class="d-flex align-items-left">
+                        <button type="button" class="btn btn-sm mr-2 d-lg-none px-3 font-size-16 header-item waves-effect"
+                            id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex align-items-center">
+
+
+                        <div class="dropdown d-inline-block ml-2">
+                            <button type="button" class="btn header-item waves-effect"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="/images/users/avatar-2.jpg"
+                                    alt="Header Avatar">
+                                <span class="d-none d-sm-inline-block ml-1">Donald M.</span>
+                                <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                             
+                                <a class="dropdown-item d-flex align-items-center justify-content-between"
+                                    href="javascript:void(0)">
+                                    <span>Log Out</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
+
+                <div data-simplebar class="h-100">
+
+                    <div class="navbar-brand-box">
+                        <a href="/admin" class="logo">
+                            <img src="/images/logo-dark.png" class="logo" alt="">
+                        </a>
+                    </div>
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Menu</li>
+
+                            <li>
+                                <a href="/admin" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span
+                                        class="badge badge-pill badge-primary float-right">7</span><span>Dashboard</span></a>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
+                                        class="mdi mdi-diamond-stone"></i><span>Media Showcase</span></a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/admin/add-media">Add Medias</a></li>
+                                    <li><a href="/admin/manage-media">Manage Medias</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
+                                        class="mdi mdi-table-merge-cells"></i><span>Backstage</span></a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/admin/add-backstage">Add Backstage</a></li>
+                                    <li><a href="/admin/manage-backstage">Manage Backstage</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect"><i
+                                        class="mdi mdi-poll"></i><span>Branding</span></a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/admin/add-branding">Add Branding</a></li>
+                                    <li><a href="/admin/manage-branding">Manage Branding</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li><a href="/admin/enquiries" class=" waves-effect"><i
+                                        class="mdi mdi-calendar-range-outline"></i><span>Manage Enquiries</span></a></li>
+
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <!-- Left Sidebar End -->

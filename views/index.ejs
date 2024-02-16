@@ -1,0 +1,50 @@
+<%- include('./partials/header'); %>
+
+			<!-- *************************************
+				*********** Begin content wrap *********** 
+				************************************** -->
+			<div id="content-wrap">
+				<div id="page-content">
+					<div class="tt-portfolio-slider cursor-drag-mouse-down" data-speed="1000" data-mousewheel="true"
+						data-keyboard="true" data-simulate-touch="true" data-grab-cursor="true"
+						data-pagination-type="progressbar">
+
+						<!-- Begin swiper container -->
+						<div class="swiper">
+							<!-- Begin swiper wrapper (required) -->
+							<div class="swiper-wrapper">
+								<div class="swiper-slide" data-url="#" data-title="" data-category="">
+									<!-- Use class "cover-opacity-*" to set an image overlay if needed. For example "cover-opacity-2". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
+									<div class="tt-portfolio-slider-item cover-opacity-2" data-swiper-parallax="50%">
+										<video class="tt-bg-video" loop muted preload="metadata"
+											poster="./assets/img/poster.JPG">
+											<source src="/images/banners/banner1.mov" type="video/mov">
+											<source src="/images/banners/banner1.mov" type="video/webm">
+										</video>
+									</div> <!-- /.tt-portfolio-slider-item -->
+								</div>
+
+							</div>
+							<!-- End swiper wrapper -->
+
+						</div>
+
+					</div>
+
+				</div>
+				<!-- End page content -->
+
+
+
+
+			</div>
+			<!-- End content wrap -->
+
+		</div>
+		<!-- End scroll container -->
+
+
+	</main>
+	<!-- End body inner -->
+
+<%- include('./partials/footer'); %>

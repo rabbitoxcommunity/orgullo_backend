@@ -1,0 +1,93 @@
+<%- include('./partials/header') %>
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-18">Add Media Showcase</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Media Showcase</a>
+                                        </li>
+                                        <li class="breadcrumb-item active">Add Media Showcase</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="response-modal" style="display: none;" class="alert" role="alert">
+                                        This is a primary alert—check it out!
+                                    </div>
+                                    <form method="POST" id="media-form">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label for="title">Title</label>
+                                                <input name="title" type="text" class="form-control" id="title"
+                                                    placeholder="Type here">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="title">Banner Image</label>
+                                                <input name="banner" type="file" class="form-control" id="title"
+                                                    placeholder="Type here">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">About The project</label>
+                                                <textarea name="about" class="form-control" id="exampleFormControlTextarea1"
+                                                    rows="3" placeholder="type here"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlTextarea1">Description (Optional)</label>
+                                                <textarea name="desc" class="form-control" id="exampleFormControlTextarea1"
+                                                    rows="3" placeholder="type here"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="title">Upload Multiple files (Images/Videos)</label>
+                                                <input name="attachments" type="file" class="form-control" id="multiple-file" multiple accept="image/*,video/*"
+                                                    placeholder="Type here">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button id="media-button" type="submit"
+                                                class="btn btn-primary waves-effect waves-light">Submit</button>
+                                            <button type="reset"
+                                                class="btn btn-secondary waves-effect waves-light ml-2">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div> <!-- end card-body-->
+                            </div>
+                        </div> <!-- end col -->
+
+                    </div>
+                    <!-- end row-->
+
+
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+            <%- include('./partials/footer') %>

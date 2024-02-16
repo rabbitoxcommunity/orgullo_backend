@@ -1,0 +1,227 @@
+<%- include('./partials/header'); %>
+				
+<!-- *************************************
+*********** Begin content wrap *********** 
+************************************** -->
+<div id="content-wrap">
+    <div id="page-header" class="ph-cap-lg ph-ghost-scroll ph-image-cropped ph-image-cover-2 ph-content-parallax">
+        <div class="page-header-inner tt-wrap">
+
+            <!-- Begin page header image 
+            ============================= -->
+            <!-- <div class="ph-image">
+                <div class="ph-image-inner">
+                    <img src="assets/img/page-header/ph-3.jpg" alt="Image">
+                </div>
+            </div> -->
+            <!-- End page header image -->
+
+            <!-- Begin page header caption
+            =============================== 
+            Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
+            -->
+            <div class="ph-caption">
+                <div class="ph-caption-subtitle">
+                    <div class="ph-appear">Selected Works</div>
+                </div>
+                <h1 class="ph-caption-title">
+                    <div class="ph-appear">Media Showcase</div>
+                </h1>
+                <div class="ph-caption-title-ghost">
+                    <div class="ph-appear">Media Showcase</div>
+                </div>
+            </div>
+            <!-- End page header caption -->
+
+        </div> <!-- /.page-header-inner -->
+
+        <!-- Begin scroll down (you can change "data-offset" to set scroll top offset) 
+        ======================= -->
+        <div class="tt-scroll-down">
+            <a href="#page-content" class="tt-sd-inner ph-appear" data-offset="0">
+                <div class="tt-sd-arrow">
+                    <div class="tt-sd-arrow-inner"></div>
+                </div>
+                <div class="tt-sd-text">Scroll</div>
+            </a>
+        </div>
+        <!-- End scroll down -->
+        
+    </div>
+    <!-- End page header -->
+
+
+    <!-- *************************************
+    *********** Begin page content *********** 
+    ************************************** -->
+    <div id="page-content">
+
+        <!-- =======================
+        ///// Begin tt-section /////
+        ============================ 
+        * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
+        -->
+        <div class="tt-section">
+            <div class="tt-section-inner">
+
+                <!-- Begin portfolio grid (works combined with tt-Ggrid!)
+                ========================== 
+                * Use class "pgi-hover" to enable portfolio grid item hover effect (behavior depends on "ttgr-gap-*" classes below!).
+                * Use class "pgi-cap-hover" to enable portfolio grid item caption hover effect (effect only with class "pgi-cap-inside"! Also no effect on mobile devices!).
+                * Use class "pgi-cap-center" to position portfolio grid item caption to center.
+                * Use class "pgi-cap-inside" to position portfolio grid item caption to inside.
+                --> 
+                <div id="portfolio-grid" class="pgi-cap-inside pgi-cap-hover">
+
+                    <!-- Begin tt-Grid
+                    =================== 
+                    * Use class "ttgr-layout-2", "ttgr-layout-3", "ttgr-layout-4" to set grid layout (columns). No class = one column.
+                    * Use class "ttgr-layout-1-2", "ttgr-layout-2-1", "ttgr-layout-2-3", "ttgr-layout-3-2", "ttgr-layout-3-4" or "ttgr-layout-4-3" to set grid mixed layout (columns).
+                    * Use class "ttgr-layout-creative-1" or "ttgr-layout-creative-2" to set grid creative mixed layout (no effect with classes "ttgr-portrait", "ttgr-portrait-half", "ttgr-not-cropped" and "ttgr-shifted").
+                    * Use class "ttgr-portrait" or "ttgr-portrait-half" to enable portrait mode (no effect with classes "ttgr-layout-creative-1", "ttgr-layout-creative-2" and "ttgr-not-cropped").
+                    * Use class "ttgr-gap-1", "ttgr-gap-2", "ttgr-gap-3", "ttgr-gap-4", "ttgr-gap-5" or "ttgr-gap-6" to add space between items.
+                    * Use class "ttgr-not-cropped" to enable not cropped mode (effect only with classes "ttgr-layout-2", "ttgr-layout-3" and "ttgr-layout-4").
+                    * Use class "ttgr-shifted" to enable shifted layout (effect only with classes "ttgr-layout-2", "ttgr-layout-3" and "ttgr-layout-4").
+                    -->
+                    <div class="tt-grid ttgr-layout-2-1 ttgr-gap-3">
+
+
+                        <!-- Begin tt-Grid items wrap 
+                        ============================== -->
+                        <div class="tt-grid-items-wrap isotope-items-wrap">
+
+                            <% data.forEach(function(data, key) { %>
+                                <!-- Begin tt-Grid item
+                                ======================== -->
+                                <div class="tt-grid-item isotope-item people">
+                                    <div class="ttgr-item-inner">
+
+                                        <!-- Begin portfolio grid item 
+                                        ===============================
+                                        * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"! Also no effect on small screens!).
+                                        -->
+                                        <div class="portfolio-grid-item">
+                                            <a href="project-details.html" class="pgi-image-wrap" data-cursor="View<br>Project">
+                                                <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
+                                                <div class="pgi-image-holder">
+                                                    <div class="pgi-image-inner anim-zoomin">
+                                                        <figure class="pgi-image ttgr-height">
+                                                            <img src="/images/media/<%= data.banner %>" alt="image">
+                                                        </figure> <!-- /.pgi-image -->
+                                                    </div> <!-- /.pgi-image-inner -->
+                                                </div> <!-- /.pgi-image-holder -->
+                                            </a> <!-- /.pgi-image-wrap -->
+
+                                            <div class="pgi-caption">
+                                                <div class="pgi-caption-inner">
+                                                    <h2 class="pgi-title">
+                                                        <a href="project-details.html"><%= data.title %></a>
+                                                    </h2>
+                                                </div> <!-- /.pgi-caption-inner -->
+                                            </div> <!-- /.pgi-caption -->
+                                        </div>
+                                        <!-- End portfolio grid item -->
+
+                                    </div> <!-- /.ttgr-item-inner -->
+                                </div>
+                                <!-- End tt-Grid item -->
+                            <% }); %>    
+
+                </div>
+                <!-- End portfolio grid -->
+
+
+                <!-- Begin tt-pagination (uncomment below code if you want to use pagination)
+                ========================= 
+                * Use class "tt-pagin-center" to align center.
+                -->
+                <!-- <div class="tt-pagination tt-pagin-center anim-fadeinup">
+                    <div class="tt-pagin-prev">
+                        <a href="" class="tt-pagin-item magnetic-item"><i class="fas fa-chevron-left"></i></a>
+                    </div>
+                    <div class="tt-pagin-numbers">
+                        <a href="#" class="tt-pagin-item magnetic-item active">1</a>
+                        <a href="" class="tt-pagin-item magnetic-item">2</a>
+                        <a href="" class="tt-pagin-item magnetic-item">3</a>
+                        <a href="" class="tt-pagin-item magnetic-item">4</a>
+                    </div>
+                    <div class="tt-pagin-next">
+                        <a href="" class="tt-pagin-item tt-pagin-next magnetic-item"><i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div> -->
+                <!-- End tt-pagination -->
+
+            </div> <!-- /.tt-section-inner -->
+        </div>
+        <!-- End tt-section -->
+
+
+        <!-- =======================
+        ///// Begin tt-section /////
+        ============================ 
+        * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
+        -->
+        <div class="tt-section padding-bottom-xlg-150">
+            <div class="tt-section-inner tt-wrap">
+
+                <!-- Begin page nav 
+                ==================== 
+                * Use class "tt-pn-center" to align page nav to center.
+                * Use class "tt-pn-stroke" to enable title stroke style.
+                -->
+                <div class="tt-page-nav tt-pn-stroke">
+                    <a href="/contact" class="tt-pn-link anim-fadeinup" data-cursor="<i class='fas fa-envelope'></i>">
+                        <div class="tt-pn-title">Let's talk</div>
+                        <div class="tt-pn-hover-title">Let's talk</div>
+                    </a> <!-- /.tt-pn-link -->
+                    <div class="tt-pn-subtitle anim-fadeinup">Get in Touch</div>
+                </div>
+                <!-- End page nav -->
+
+            </div> <!-- /.tt-section-inner -->
+        </div>
+        <!-- End tt-section -->
+
+
+    </div>
+    <!-- End page content -->
+					
+
+    <!-- ======================
+    ///// Begin tt-footer /////
+    =========================== -->
+    <footer id="tt-footer">
+        <div class="tt-footer-inner">
+
+            <!-- Begin footer column 
+            ========================= -->
+            <div class="footer-col tt-align-center-left">
+                <div class="footer-col-inner">
+
+                    <a href="#" class="tt-btn tt-btn-link scroll-to-top">
+                        <span class="tt-btn-icon"><i class="fas fa-arrow-up"></i></span>
+                        <div data-hover="Back to Top">Back to Top</div>
+                    </a>
+
+                </div> <!-- /.footer-col-inner -->
+            </div>
+            <!-- Begin footer column -->
+
+    
+
+        </div> <!-- /.tt-section-inner -->
+    </footer>
+    <!-- End tt-footer -->
+
+
+            </div>
+            <!-- End content wrap -->
+
+        </div>
+        <!-- End scroll container -->
+
+
+    </main>
+    <!-- End body inner -->
+
+        <%- include('./partials/footer'); %>

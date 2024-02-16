@@ -1,0 +1,70 @@
+<%- include('./partials/header') %>
+<!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box d-flex align-items-center justify-content-between">
+                                <h4 class="mb-0 font-size-18">Enquiries</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Let's Speak</a></li>
+                                        <li class="breadcrumb-item active">Enquiries</li>
+                                    </ol>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>     
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Enquiries</h4>
+                                    <p class="card-subtitle mb-4">Here is the lists of the all Enquiries From the website</p>
+
+                                    <div class="table-responsive">
+                                        <table id="basic-datatable" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Your Name</th>
+                                                    <th>Email address</th>
+                                                    <th>Subject</th>
+                                                    <th>Select an option</th>
+                                                    <th style="width: 400px;">Your Message</th>
+                                                </tr>
+                                            </thead>
+                                        
+                                        
+                                            <tbody>
+                                                <% data.forEach(function(data,key) { %>
+                                                <tr>
+                                                    <td><%= data.name %></td>
+                                                    <td><%= data.email %></td>
+                                                    <td><%= data.subject %></td>
+                                                    <td><%= data.option %></td>
+                                                    <td><%= data.message %></td>
+                                                </tr>
+                                                <% }); %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div> <!-- end card body-->
+                            </div> <!-- end card -->
+                        </div><!-- end col-->
+                    </div>
+
+                </div> <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+<%- include('./partials/footer') %>
