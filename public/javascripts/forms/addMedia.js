@@ -3,24 +3,37 @@ $(document).ready(function($) {
         return this.optional(element) || (element.files[0].size <= param * 1000000)
     }, 'File size must be less than {1} MB');
 
+    $("#deleteButton").on("click", function() {
+        console.log('----------------------------------------------------------------');
+        if (confirm("Are you sure you want to delete?")) {
+            $.ajax({
+                url: base_url+'admin/media/' + $('#id').val(),
+                type: "DELETE",
+                success: function(response) {
+                    console.log("Delete successful", response);
+                },
+                error: function(error) {
+                    console.error("Error deleting", error);
+                }
+            });
+        }
+    });
+
     $("#media-form").validate({
         rules: {
             title: {
                 required: true
             },
-            author: {
+            about: {
                 required: true
             },
             desc: {
-                required: true
+                required: false
             },
-            long_desc: {
-                required: true
-            },
-            image: {
-                required:($('#event_id').val())?false:true,
+            banner: {
+                required:($('#id').val())?false:true,
                 accept: "jpg,jpeg,png",
-                filesize: 1,
+                filesize: 10,
             },
 
         },
@@ -37,15 +50,16 @@ $(document).ready(function($) {
             var form = $('#media-form')[0];
             var formData = new FormData(form);
 
-            var files = $("#multiple-file")[0].files;
-
-            for (var i = 0; i < files.length; i++) {
-                formData.append(`attachments[]`, files[i]);
+            let http_type;
+            if($('#id').val()){
+                http_type = 'PUT'
+            }else{
+                http_type = 'POST'
             }
 
             $.ajax({
-                url: base_url+'admin/add-media',
-                type: 'POST',
+                url: base_url+'admin/media',
+                type: http_type,
                 data: formData,
                 processData: false,
                 contentType: false,

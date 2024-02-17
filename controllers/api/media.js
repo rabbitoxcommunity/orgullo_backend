@@ -16,22 +16,26 @@ module.exports.getMedias = async (req, res) => {
     }
 };
 
-module.exports.getBlogById = async (req, res) => {
+module.exports.getMediaById = async (req, res) => {
     try {
-        const blog = await Media.findById(req.params.id);
+        const media = await Media.findById(req.params.id);
 
-        if(!blog) {
+        if(!media) {
             return res.status(500).json({
                 success: false,
-                message: "No blog found"
+                message: "No media found"
             })
         }
 
-        return res.status(200).json({
-            success: true,
-            message: "Blog fetched successfully",
-            data: blog
-        })
+        let firstAttachment = media.attachments[0];
+        media.attachments.shift();
+
+        return res.render('media-details', {
+            title: 'Express media',
+            data: media,
+            firstAttachment,
+            baseLink: process.env.BASE_URL
+        });
     } catch (err) {
         return res.status(500).json({
             success: false,

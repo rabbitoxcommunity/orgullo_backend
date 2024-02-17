@@ -34,4 +34,8 @@ router.get('/bts', function(req, res, next) {
   res.render('bts', { title: 'Express media' });
 })
 
+router.get('/media-details/:id', media.getMediaById)
+router.get('/branding-details/:id', branding.getBrandingById)
+router.get('/backstage-details/:id', backstage.getBackstageById)
+
 module.exports = router;

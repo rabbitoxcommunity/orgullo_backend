@@ -5,24 +5,23 @@ $(document).ready(function($) {
 
     $("#branding-form").validate({
         rules: {
-            // title: {
-            //     required: true
-            // },
-            // about: {
-            //     required: true
-            // },
-            // desc: {
-            //     required: true
-            // },
-            // attachments: {
-            //     required: true
-            // },
-            // banner: {
-            //     required:($('#event_id').val())?false:true,
-            //     accept: "jpg,jpeg,png",
-            //     filesize: 10,
-            // },
-
+            title: {
+                required: true
+            },
+            subtitle: {
+                required: true
+            },
+            about: {
+                required: true
+            },
+            desc: {
+                required: false
+            },
+            banner: {
+                required:($('#id').val())?false:true,
+                accept: "jpg,jpeg,png",
+                filesize: 10,
+            },
         },
         messages: {
             image: {
@@ -37,15 +36,16 @@ $(document).ready(function($) {
             var form = $('#branding-form')[0];
             var formData = new FormData(form);
 
-            // var files = $("#attachments")[0].files;
-
-            // for (var i = 0; i < files.length; i++) {
-            //     formData.append(`attachments[]`, files[i]);
-            // }
+            let http_type;
+            if($('#id').val()){
+                http_type = 'PUT'
+            }else{
+                http_type = 'POST'
+            }
 
             $.ajax({
-                url: base_url+'admin/add-branding',
-                type: 'POST',
+                url: base_url+'admin/branding',
+                type: http_type,
                 data: formData,
                 processData: false,
                 contentType: false,

@@ -11,15 +11,28 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
-                                <h4 class="mb-0 font-size-18">Add Media Showcase</h4>
 
-                                <div class="page-title-right">
-                                    <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Media Showcase</a>
-                                        </li>
-                                        <li class="breadcrumb-item active">Add Media Showcase</li>
-                                    </ol>
-                                </div>
+                                <% if(media && media._id){ %>
+                                    <h4 class="mb-0 font-size-18">Edit Media Showcase</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Media Showcase</a>
+                                            </li>
+                                            <li class="breadcrumb-item active">Edit Media Showcase</li>
+                                        </ol>
+                                    </div>
+                                <% } else{ %>
+                                    <h4 class="mb-0 font-size-18">Add Media Showcase</h4>
+
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Media Showcase</a>
+                                            </li>
+                                            <li class="breadcrumb-item active">Add Media Showcase</li>
+                                        </ol>
+                                    </div>
+                                <% } %>
 
                             </div>
                         </div>
@@ -34,12 +47,13 @@
                                         This is a primary alert—check it out!
                                     </div>
                                     <form method="POST" id="media-form">
+                                        <input type="hidden" id="id" name="id"  value="<%= media && media._id %>">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label for="title">Title</label>
                                                 <input name="title" type="text" class="form-control" id="title"
-                                                    placeholder="Type here">
+                                                    placeholder="Type here" value="<%= media && media.title %>">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -53,14 +67,14 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlTextarea1">About The project</label>
                                                 <textarea name="about" class="form-control" id="exampleFormControlTextarea1"
-                                                    rows="3" placeholder="type here"></textarea>
+                                                    rows="3" placeholder="type here"><%= media && media.about %></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="exampleFormControlTextarea1">Description (Optional)</label>
                                                 <textarea name="desc" class="form-control" id="exampleFormControlTextarea1"
-                                                    rows="3" placeholder="type here"></textarea>
+                                                    rows="3" placeholder="type here"><%= media && media.desc %></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">

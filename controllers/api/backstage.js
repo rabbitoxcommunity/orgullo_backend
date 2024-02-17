@@ -17,22 +17,26 @@ module.exports.getBackstage = async (req, res) => {
     }
 };
 
-module.exports.getBlogById = async (req, res) => {
+module.exports.getBackstageById = async (req, res) => {
     try {
-        const blog = await Blog.findById(req.params.id);
+        const backstage = await Backstage.findById(req.params.id);
 
-        if(!blog) {
+        if(!backstage) {
             return res.status(500).json({
                 success: false,
-                message: "No blog found"
+                message: "No backstage found"
             })
         }
+        console.log(backstage);
+        let firstAttachment = backstage.attachments[0];
+        backstage.attachments.shift();
 
-        return res.status(200).json({
-            success: true,
-            message: "Blog fetched successfully",
-            data: blog
-        })
+        return res.render('backstage-details', {
+            title: 'Express media',
+            data: backstage,
+            firstAttachment,
+            baseLink: process.env.BASE_URL
+        });
     } catch (err) {
         return res.status(500).json({
             success: false,

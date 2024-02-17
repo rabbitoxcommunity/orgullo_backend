@@ -9,23 +9,27 @@ const enquiries = require('../controllers/admin/enquiries');
 
 router.get('/', dashboard.dashboard);
 
-router.get('/add-media', function(req, res, next) {
-    res.render('admin/add-media', { title: 'Express', baseLink: process.env.BASE_URL });
-});
-router.post('/add-media', media.addMedia);
+router.get('/add-media', media.mediaForm);
+router.get('/edit-media/:id', media.mediaForm);
+router.post('/media', media.addMedia);
+router.put('/media', media.editMedia);
+router.delete('/media', media.deleteMedia);
 router.get('/manage-media', media.listMedias);
+router.get('/delete-media/:id', media.deleteMedia);
 
-router.get('/add-backstage', function(req, res, next) {
-    res.render('admin/add-backstage', { title: 'Express', baseLink: process.env.BASE_URL });
-});
-router.post('/add-backstage', backstage.addBackstage);
+router.get('/add-backstage', backstage.backstageForm);
+router.get('/edit-backstage/:id', backstage.backstageForm);
+router.post('/backstage', backstage.addBackstage);
+router.put('/backstage', backstage.editBackstage);
 router.get('/manage-backstage', backstage.listBackstages);
+router.get('/delete-backstage/:id', backstage.deleteBackstage);
 
-router.get('/add-branding', function(req, res, next) {
-    res.render('admin/add-branding', { title: 'Express', baseLink: process.env.BASE_URL });
-});
-router.post('/add-branding', branding.addBranding);
+router.get('/add-branding', branding.brandingForm);
+router.get('/edit-branding/:id', branding.brandingForm);
+router.post('/branding', branding.addBranding);
+router.put('/branding', branding.editBranding);
 router.get('/manage-branding', branding.listBrandings);
+router.get('/delete-branding/:id', branding.deleteBranding);
 
 router.get('/enquiries', enquiries.viewEquiries);
 

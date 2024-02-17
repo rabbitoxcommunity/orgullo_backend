@@ -17,22 +17,26 @@ module.exports.getBrandings = async (req, res) => {
     }
 };
 
-module.exports.getBlogById = async (req, res) => {
+module.exports.getBrandingById = async (req, res) => {
     try {
-        const blog = await Branding.findById(req.params.id);
+        const branding = await Branding.findById(req.params.id);
 
-        if(!blog) {
+        if(!branding) {
             return res.status(500).json({
                 success: false,
-                message: "No blog found"
+                message: "No branding found"
             })
         }
+        console.log(branding);
+        let firstAttachment = branding.attachments[0];
+        branding.attachments.shift();
 
-        return res.status(200).json({
-            success: true,
-            message: "Blog fetched successfully",
-            data: blog
-        })
+        return res.render('branding-details', {
+            title: 'Express media',
+            data: branding,
+            firstAttachment,
+            baseLink: process.env.BASE_URL
+        });
     } catch (err) {
         return res.status(500).json({
             success: false,
