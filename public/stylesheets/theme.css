@@ -11384,3 +11384,19 @@ body:not(.is-mobile) .tt-style-switch:hover {
 		border-radius: 0 50px 50px 0;
 	}
 }
+
+@media (max-width: 600px) {
+	.tt-ol-menu-toggle-btn-holder i{
+		font-size: 18px;
+	}
+	.tt-ol-menu-toggle-btn{
+		width: 50px;
+	}
+	.tt-ol-menu-list{
+		display: block;
+	}
+	.tt-ol-menu-list>li>a, .tt-ol-menu-list>li>.tt-ol-submenu-trigger>a {
+		font-size: clamp(27px, 4vw, 64px);
+		line-height: 1.6;
+	}
+}
