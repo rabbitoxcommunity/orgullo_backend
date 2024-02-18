@@ -11,8 +11,7 @@ module.exports.mediaForm = async (req, res) => {
             media = await Media.findOne({_id:req.params.id});
         }
         return res.render('admin/add-media', {
-            title: 'Express', 
-            baseLink: process.env.BASE_URL,
+            title: 'Express',
             media
         });
     } catch (err) {
@@ -160,8 +159,7 @@ module.exports.listMedias = async (req, res) => {
         const medias = await Media.find().sort({ updatedAt: -1});
         return res.render('admin/manage-media', { 
             title: 'Express',
-            data: medias,
-            baseLink: process.env.BASE_URL
+            data: medias
         });
     } catch (err) {
         return res.status(500).json({

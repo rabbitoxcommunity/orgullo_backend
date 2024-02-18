@@ -55,23 +55,25 @@ $(document).ready(function($) {
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
                             window.location.href = base_url+'admin/manage-backstage';
-                        }, 2000);
+                        }, 1000);
                     }else{
-                        $('#blog-form')[0].reset();
+                        $('#backstage-form')[0].reset();
                         $('#response-modal').css('display', 'block').addClass('alert-danger');
                         $("#response-modal").html(data['message']);
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
+                            $('#response-modal').css('display', 'none').removeClass('alert-danger');
                             $("#backstage-button").prop('disabled', false);
-                        }, 2000);
+                        }, 1000);
                     }
                 },
                 error: function (data) {
                     $('#response-modal').css('display', 'block').addClass('alert-danger');
-                    $("#response-modal").html(data['message']);
+                    $("#response-modal").html(data.responseJSON.message);
                     setTimeout(function() { 
+                        $('#response-modal').css('display', 'none').removeClass('alert-danger');
                         $("#backstage-button").prop('disabled', false);
-                    }, 2000);
+                    }, 1000);
                 }
             });
         }

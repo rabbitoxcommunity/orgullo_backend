@@ -47,23 +47,25 @@ $(document).ready(function($) {
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
                             window.location.reload();
-                        }, 2000);
+                        }, 1000);
                     }else{
-                        $('#blog-form')[0].reset();
+                        $('#tt-contact-form')[0].reset();
                         $('#response-modal').css('display', 'block').addClass('alert-danger');
                         $("#response-modal").html(data['message']);
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
+                            $('#response-modal').css('display', 'none').removeClass('alert-danger');
                             $("#enquiry-button").prop('disabled', false);
-                        }, 2000);
+                        }, 1000);
                     }
                 },
                 error: function (data) {
                     $('#response-modal').css('display', 'block').addClass('alert-danger');
-                    $("#response-modal").html(data['message']);
+                    $("#response-modal").html(data.responseJSON.message);
                     setTimeout(function() { 
+                        $('#response-modal').css('display', 'none').removeClass('alert-danger');
                         $("#enquiry-button").prop('disabled', false);
-                    }, 2000);
+                    }, 1000);
                 }
             });
         }

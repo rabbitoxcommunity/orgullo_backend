@@ -27,7 +27,6 @@ module.exports.getBackstageById = async (req, res) => {
                 message: "No backstage found"
             })
         }
-        console.log(backstage);
         let firstAttachment = backstage.attachments[0];
         backstage.attachments.shift();
 

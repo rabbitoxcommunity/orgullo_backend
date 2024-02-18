@@ -4,7 +4,6 @@ $(document).ready(function($) {
     }, 'File size must be less than {1} MB');
 
     $("#deleteButton").on("click", function() {
-        console.log('----------------------------------------------------------------');
         if (confirm("Are you sure you want to delete?")) {
             $.ajax({
                 url: base_url+'admin/media/' + $('#id').val(),
@@ -72,23 +71,25 @@ $(document).ready(function($) {
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
                             window.location.href = base_url+'admin/manage-media';
-                        }, 2000);
+                        }, 1000);
                     }else{
-                        $('#blog-form')[0].reset();
+                        $('#media-form')[0].reset();
                         $('#response-modal').css('display', 'block').addClass('alert-danger');
                         $("#response-modal").html(data['message']);
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
+                            $('#response-modal').css('display', 'none').removeClass('alert-danger');
                             $("#media-button").prop('disabled', false);
-                        }, 2000);
+                        }, 1000);
                     }
                 },
                 error: function (data) {
                     $('#response-modal').css('display', 'block').addClass('alert-danger');
-                    $("#response-modal").html(data['message']);
+                    $("#response-modal").html(data.responseJSON.message);
                     setTimeout(function() { 
+                        $('#response-modal').css('display', 'none').removeClass('alert-danger');
                         $("#media-button").prop('disabled', false);
-                    }, 2000);
+                    }, 1000);
                 }
             });
         }

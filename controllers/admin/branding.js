@@ -13,7 +13,6 @@ module.exports.brandingForm = async (req, res) => {
 
         return res.render('admin/add-branding', { 
             title: 'Express', 
-            baseLink: process.env.BASE_URL,
             branding
         });
     } catch (err) {
@@ -162,8 +161,7 @@ module.exports.listBrandings = async (req, res) => {
 
         return res.render('admin/manage-branding', { 
             title: 'Express',
-            data: brandings,
-            baseLink: process.env.BASE_URL
+            data: brandings
         });
     } catch (err) {
         return res.status(500).json({

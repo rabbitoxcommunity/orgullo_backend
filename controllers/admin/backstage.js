@@ -13,7 +13,6 @@ module.exports.backstageForm = async (req, res) => {
 
         return res.render('admin/add-backstage', { 
             title: 'Express', 
-            baseLink: process.env.BASE_URL, 
             backstage
         });
     } catch (err) {
@@ -161,8 +160,7 @@ module.exports.listBackstages = async (req, res) => {
         const backstages = await Backstage.find().sort({ updatedAt: -1});
         return res.render('admin/manage-backstage', { 
             title: 'Express',
-            data: backstages,
-            baseLink: process.env.BASE_URL
+            data: backstages
         });
     } catch (err) {
         return res.status(500).json({

@@ -27,7 +27,6 @@ module.exports.getBrandingById = async (req, res) => {
                 message: "No branding found"
             })
         }
-        console.log(branding);
         let firstAttachment = branding.attachments[0];
         branding.attachments.shift();
 

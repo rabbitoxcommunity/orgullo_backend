@@ -7,7 +7,6 @@ module.exports.dashboard = async (req, res, next) => {
     return res.render('admin/index', { 
         title: 'Express', 
         blogCount: blogCount, 
-        appointmentCount: appointmentCount,
-        baseLink: process.env.BASE_URL
+        appointmentCount: appointmentCount
     });
 }
