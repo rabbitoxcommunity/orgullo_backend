@@ -34,6 +34,12 @@ $(document).ready(function($) {
                 accept: "jpg,jpeg,png",
                 filesize: 10,
             },
+            url: {
+                required: true
+            },
+            thumbnail: {
+                required: true
+            }
 
         },
         messages: {

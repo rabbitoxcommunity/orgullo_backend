@@ -79,11 +79,40 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="title">Upload Multiple files (Images/Videos)</label>
+                                                <label for="title">Upload Multiple files (Images)</label>
                                                 <input name="attachments" type="file" class="form-control" id="multiple-file" multiple accept="image/*,video/*"
                                                     placeholder="Type here">
                                             </div>
                                         </div>
+
+                                        <div class="col-md-12 mb-5">
+                                            <div id="dynamic-form" x-data="{ CONTROLLER }">
+                                                <table id="dynamic-form-table">
+                                                    <thead>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                </table>
+                                                <template data-target="#dynamic-form-table tbody">
+                                                    <tr class="dynamic-row" data-index="1">
+                                                        <td class="w-50 ps-0 p-2">
+                                                            <input class="form-control" placeholder="Type here" type="text" name="url">
+                                                        </td>
+                                                        <td class="w-50 p-2"><input class="form-control" placeholder="Upload" type="file" name="thumbnail"></td>
+                                                        <td>
+                                                            <button class="delete-button btn btn-danger" @click="controller.deleteRow()">Delete</button>
+                                                        </td>
+                                                    </tr>
+                                                </template>
+
+
+
+                                                <button id="add-button" class="btn btn-dark">Add Video Url & Thumbnail</button>
+                                            </div>
+                                        </div>
+
                                         <div class="col-md-12">
                                             <button id="media-button" type="submit"
                                                 class="btn btn-primary waves-effect waves-light">Submit</button>

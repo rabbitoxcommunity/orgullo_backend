@@ -6,7 +6,11 @@ var mediaSchema = new mongoose.Schema(
     about: String,
     desc: String,
     banner: String,
-    attachments: [String]
+    attachments: [String],
+    videos: [{
+      url: String,
+      thumbnail: String
+    }]
   },
   {
     timestamps: true,
