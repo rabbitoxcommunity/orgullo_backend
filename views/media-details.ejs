@@ -205,6 +205,32 @@
 										============================== -->
 										<div class="tt-grid-items-wrap isotope-items-wrap lightgallery">
 
+											<% data.videos.forEach(function(file,key) { %>
+												<div class="tt-grid-item isotope-item">
+													<div class="ttgr-item-inner">
+	
+														<!-- Begin tt-Gallery item (HTML5 video)
+														=========================== -->
+														<a href="" class="tt-gallery-item lg-trigger" data-cursor="Play" data-html="
+															<video class='lg-video-object lg-html5' controls playsinline preload='auto'>
+																<source src='<%= file.url %>' type='video/mp4'>
+																<source src='<%= file.url %>' type='video/webm'>
+															</video>">
+															<div class="tt-gallery-item-inner">
+																<figure class="tt-gallery-video-wrap ttgr-height anim-zoomin">
+																	<video class="tt-gallery-video" loop muted preload="metadata" poster="/images/media/<%= file.thumbnail %>">
+																		<source src="<%= file.url %>" type="video/mp4">
+																		<source src="<%= file.url %>" type="video/webm">
+																	</video> <!-- /.tt-gallery-video -->
+																</figure> <!-- /.tt-gallery-video-wrap -->
+															</div> <!-- /.tt-gallery-item-inner -->
+														</a>
+														<!-- End tt-Gallery item -->
+	
+													</div> <!-- /.ttgr-item-inner -->
+												</div>
+											<% }); %>
+
 											<% data.attachments.forEach(function(file,key) { %>
 
 											<% if(['mp4', 'avi', 'mkv', 'mov'].includes(file.split('.').pop().toLowerCase())) { %>

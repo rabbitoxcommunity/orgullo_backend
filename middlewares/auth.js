@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const Enquiry = require('../models/Enquiry');
 
 module.exports.authValidation = async (req, res, next) => {
     try {
@@ -16,6 +17,7 @@ module.exports.authValidation = async (req, res, next) => {
             if(verified) {
                 res.locals.admin_name = process.env.ADMIN_NAME
                 res.locals.baseLink = process.env.BASE_URL
+                res.locals.enquiriesCount = await Enquiry.countDocuments()
                 next()
             } else {
                 return res.redirect('/login')

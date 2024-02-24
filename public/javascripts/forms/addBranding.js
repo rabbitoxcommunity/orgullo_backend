@@ -33,6 +33,7 @@ $(document).ready(function($) {
 
         submitHandler: function(form) {
             $("#branding-button").prop('disabled', true);
+            $("#spinner-loader").css('display', 'block');
             var form = $('#branding-form')[0];
             var formData = new FormData(form);
 

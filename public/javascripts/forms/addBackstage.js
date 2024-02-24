@@ -19,6 +19,12 @@ $(document).ready(function($) {
                 accept: "jpg,jpeg,png",
                 filesize: 10,
             },
+            url: {
+                required: true
+            },
+            thumbnail: {
+                required: true
+            }
         },
         messages: {
             image: {
@@ -30,6 +36,7 @@ $(document).ready(function($) {
 
         submitHandler: function(form) {
             $("#backstage-button").prop('disabled', true);
+            $("#spinner-loader").css('display', 'block');
             var form = $('#backstage-form')[0];
             var formData = new FormData(form);
 

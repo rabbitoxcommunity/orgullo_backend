@@ -52,6 +52,7 @@ $(document).ready(function($) {
 
         submitHandler: function(form) {
             $("#media-button").prop('disabled', true);
+            $("#spinner-loader").css('display', 'block');
             var form = $('#media-form')[0];
             var formData = new FormData(form);
 

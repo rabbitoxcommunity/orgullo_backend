@@ -146,6 +146,27 @@ module.exports.editMedia = async (req, res) => {
                 payload.attachments = result.files
             }
 
+            if(files.thumbnail) {
+                const result = await fileHandler.mediaHandler(files.thumbnail, 'public/images/media','image');
+
+                if (result.error_status) {
+                    return res.status(500).json({
+                        success: false,
+                        message: "Server error"
+                    })
+                }
+
+                let videos = []
+                for (let i = 0; i < result.files.length; i++) {
+                    videos.push({
+                        url: fields.url[i],
+                        thumbnail: result.files[i]
+                    })
+                }
+
+                payload.videos = videos
+            }
+
             await Media.updateOne({ _id:fields.id }, payload)
 
             return res.status(200).json({

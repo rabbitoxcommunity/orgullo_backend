@@ -1,12 +1,16 @@
-// const Appointment = require('../../models/Appointment');
-// const Blog = require('../../models/Blog');
+const Media = require('../../models/Media');
+const Backstage = require('../../models/Backstage');
+const Branding = require('../../models/Branding');
+const Enquiry = require('../../models/Enquiry');
 
 module.exports.dashboard = async (req, res, next) => {
     const blogCount = 0//await Blog.countDocuments()
     const appointmentCount = 0//await Appointment.countDocuments()
     return res.render('admin/index', { 
         title: 'Express', 
-        blogCount: blogCount, 
-        appointmentCount: appointmentCount
+        mediaCount: await Media.countDocuments(),
+        backstageCount: await Backstage.countDocuments(),
+        brandingCount: await Branding.countDocuments(), 
+        enquiryCount: await Enquiry.countDocuments()
     });
 }
