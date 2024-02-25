@@ -7,7 +7,8 @@ module.exports.getBackstage = async (req, res) => {
         return res.render('backstage', { 
             title: 'Express media', 
             data: backstages, 
-            baseLink: process.env.BASE_URL 
+            baseLink: process.env.BASE_URL ,
+            home: false
         });
     } catch (err) {
         return res.status(500).json({
@@ -34,7 +35,8 @@ module.exports.getBackstageById = async (req, res) => {
             title: 'Express media',
             data: backstage,
             firstAttachment,
-            baseLink: process.env.BASE_URL
+            baseLink: process.env.BASE_URL,
+            home: false
         });
     } catch (err) {
         return res.status(500).json({

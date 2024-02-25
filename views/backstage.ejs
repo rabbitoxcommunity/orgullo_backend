@@ -82,44 +82,36 @@
 									<div class="tt-grid">
 										<!-- Begin tt-Grid items wrap 
 										============================== -->
-										<div class="tt-grid-items-wrap isotope-items-wrap">
-
-											<% data.forEach(function(data, key) { %>
+										<div class="tt-grid-items-wrap isotope-items-wrap lightgallery">
 
 											<!-- Begin tt-Grid item
 											======================== -->
-											<div class="tt-grid-item isotope-item people">
-												<div class="ttgr-item-inner">
-
-													<!-- Begin portfolio grid item 
-													===============================
-													* Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"!).
-													* Use class "tt-bg-is-light" if you use light image. It makes header elements dark when it reaches the top of the screen when you scroll the page.
-													-->
-													<div class="portfolio-grid-item">
-														<a href="/backstage-details/<%= data._id %>" class="pgi-image-wrap" data-cursor="View<br>Project">
-															<!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
-															<div class="pgi-image-holder cover-opacity-2">
-																<div class="pgi-image-inner anim-zoomin">
-																	<figure class="pgi-image ttgr-height anim-image-parallax">
-																		<img src="/images/backstage/<%= data.banner %>" alt="image">
-																	</figure> <!-- /.pgi-image -->
-																</div> <!-- /.pgi-image-inner -->
-															</div> <!-- /.pgi-image-holder -->
-														</a> <!-- /.pgi-image-wrap -->
-
+											<% data.forEach(function(data, key) { %>
+												<div class="tt-grid-item isotope-item">
+													<div class="ttgr-item-inner">
+	
+														<!-- Begin tt-Gallery item 
+														=========================== -->
+														<a href="<%= data.url %>" class="tt-gallery-item lg-trigger" data-cursor="View" data-sub-html="Yes, you can use image captions. :)">
+															<div class="tt-gallery-item-inner">
+																<div class="tt-gallery-image-wrap anim-zoomin">
+																	<figure class="tt-gallery-image ttgr-height">
+																		<img src="/images/backstage/<%= data.thumbnail %>" alt="image">
+																	</figure> <!-- /.tt-gallery-image -->
+																</div> <!-- /.tt-gallery-image-wrap -->
+															</div> <!-- /.tt-gallery-item-inner -->
+														</a>
+														<!-- End tt-Gallery item -->
 														<div class="pgi-caption">
 															<div class="pgi-caption-inner">
 																<h2 class="pgi-title"><%= data.title %></h2>
+																
 															</div> <!-- /.pgi-caption-inner -->
-														</div> <!-- /.pgi-caption -->
-													</div>
-													<!-- End portfolio grid item -->
-
-												</div> <!-- /.ttgr-item-inner -->
-											</div>
-											<!-- End tt-Grid item -->
+														</div>
+													</div> <!-- /.ttgr-item-inner -->
+												</div>
 											<% }); %>    
+
 										</div>
 										<!-- End tt-Grid items wrap  -->
 

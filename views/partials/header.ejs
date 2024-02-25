@@ -102,6 +102,8 @@
 				========================
 				* Use class "tt-header-fixed" to set header to fixed position.
 				-->
+
+			<% if(!home) { %>
 			<div class="header-logo">
 				<div class="tt-logo">
 					<a href="/">
@@ -109,8 +111,11 @@
 					</a>
 				</div>
 			</div>
-			<header id="tt-header" class="tt-header-fixed">
 
+			<% } %>
+
+			<header id="tt-header" class="tt-header-fixed">
+    
 				<div class="tt-header-inner"><div class="tt-header-col">
 
 						<!-- Begin overlay menu toggle button -->
@@ -134,13 +139,13 @@
 								</a>
 							</div>
 							<div class="tt-ol-menu-toggle-btn-holder">
-								<a href="#" class="tt-ol-menu-toggle-btn magnetic-item">
+								<a href="https://www.linkedin.com/company/orgullo-mena/" target="_blank" class="tt-ol-menu-toggle-btn magnetic-item">
 									<i class="fab fa-linkedin-in"></i>
 								</a>
 							</div>
 							<div class="tt-ol-menu-toggle-btn-holder">
-								<a href="#" class="tt-ol-menu-toggle-btn magnetic-item">
-									<i class="fab fa-behance"></i>
+								<a href="https://www.instagram.com/orgullostudios?igsh=cDVoeDZyMDZrbzJk&utm_source=qr" target="_blank" class="tt-ol-menu-toggle-btn magnetic-item">
+									<i class="fab fa-instagram"></i>
 								</a>
 							</div>
 							<div class="tt-ol-menu-toggle-btn-holder">
@@ -164,15 +169,12 @@
 
 										<!-- Begin menu list -->
 										<ul class="tt-ol-menu-list">
-
-											<li><a href="index.html">Home</a></li>
+											<li><a href="/">Home</a></li>
 											<li><a href="/about">Discover Orgullo</a></li>
-											<li><a href="/media-showcase">Media Showcase</a></li>
+											<li><a href="/media-showcase">Media</a></li>
 											<li><a href="/backstage">Backstage</a></li>
 											<li><a href="/branding">Branding</a></li>
-											<li><a href="/services">What we offer</a></li>
 											<li><a href="/contact">Let’s speak</a></li>
-
 										</ul>
 
 									</div> <!-- /.tt-ol-menu-content -->

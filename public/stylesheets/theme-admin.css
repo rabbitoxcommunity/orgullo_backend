@@ -6,6 +6,12 @@
   margin: 0;
 }
 
+.spinner-border {
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+}
+
 .metismenu li {
   display: block;
   width: 100%;

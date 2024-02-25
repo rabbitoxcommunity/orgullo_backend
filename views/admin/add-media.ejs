@@ -84,7 +84,19 @@
                                                     placeholder="Type here">
                                             </div>
                                         </div>
-
+                                        <% media.videos.forEach(function(data,key) { %>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="title">Url</label>
+                                                <input name="url" type="text" class="form-control" id="url"
+                                                    placeholder="Type here" value="<%= data && data.url %>">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label for="title">Thumbnail</label>
+                                                <img src="/images/media/<%= data.thumbnail %>" height="100" alt="">
+                                                <!-- <input name="banner" type="file" class="form-control" id="title"
+                                                    placeholder="Upload"> -->
+                                            </div>
+                                        <% }) %>
                                         <div class="col-md-12 mb-5">
                                             <div id="dynamic-form" x-data="{ CONTROLLER }">
                                                 <table id="dynamic-form-table">
@@ -113,9 +125,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 d-flex">
                                             <button id="media-button" type="submit"
-                                                class="btn btn-primary waves-effect waves-light">Submit
+                                                class="btn btn-primary waves-effect waves-light d-flex align-items-center">Submit
                                                 <div style="display: none;" class="spinner-border" id="spinner-loader" role="status">
                                                     <span class="sr-only">Loading...</span>
                                                 </div>

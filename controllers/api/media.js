@@ -6,7 +6,8 @@ module.exports.getMedias = async (req, res) => {
         return res.render('media-showcase', { 
             title: 'Express media', 
             data: medias,
-            baseLink: process.env.BASE_URL
+            baseLink: process.env.BASE_URL,
+            home: false
         });
     } catch (err) {
         return res.status(500).json({
@@ -19,7 +20,7 @@ module.exports.getMedias = async (req, res) => {
 module.exports.getMediaById = async (req, res) => {
     try {
         const media = await Media.findById(req.params.id);
-
+        console.log(media);
         if(!media) {
             return res.status(500).json({
                 success: false,
@@ -34,7 +35,8 @@ module.exports.getMediaById = async (req, res) => {
             title: 'Express media',
             data: media,
             firstAttachment,
-            baseLink: process.env.BASE_URL
+            baseLink: process.env.BASE_URL,
+            home: false
         });
     } catch (err) {
         return res.status(500).json({

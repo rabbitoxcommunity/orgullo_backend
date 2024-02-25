@@ -7,7 +7,8 @@ module.exports.getBrandings = async (req, res) => {
         return res.render('branding', { 
             title: 'Express media' ,
             data: brandings,
-            baseLink: process.env.BASE_URL 
+            baseLink: process.env.BASE_URL,
+            home: false
         });
     } catch (err) {
         return res.status(500).json({
@@ -34,7 +35,8 @@ module.exports.getBrandingById = async (req, res) => {
             title: 'Express media',
             data: branding,
             firstAttachment,
-            baseLink: process.env.BASE_URL
+            baseLink: process.env.BASE_URL,
+            home: false
         });
     } catch (err) {
         return res.status(500).json({

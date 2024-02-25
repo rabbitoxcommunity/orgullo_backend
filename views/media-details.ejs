@@ -122,7 +122,7 @@
 						============================ 
 						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
 						-->
-						<% if(!['mp4', 'avi', 'mkv', 'mov'].includes(firstAttachment.split('.').pop().toLowerCase())) { %>
+						<% if (firstAttachment) { %>
 							<div class="tt-section no-padding">
 								<div class="tt-section-inner">
 	
@@ -154,24 +154,27 @@
 						============================ 
 						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
 						-->
-						<div class="tt-section padding-top-xlg-180 padding-left-sm-3-p padding-right-sm-3-p">
-							<div class="tt-section-inner tt-wrap">
-
-									<div class="tt-row">
-										<div class="tt-col-lg-8">
-
-											<div class="anim-fadeinup text-lg">
-												<p><%= data.desc %></p>
-											</div>
-
-										</div> <!-- /.tt-col -->
-
-										<div class="tt-col-lg-4">
-										</div> <!-- /.tt-col -->
-									</div> <!-- /.tt-row -->
-
-							</div> <!-- /.tt-section-inner -->
-						</div>
+						<% if (data.desc) { %>
+							<div class="tt-section padding-top-xlg-180 padding-left-sm-3-p padding-right-sm-3-p">
+								<div class="tt-section-inner tt-wrap">
+	
+										<div class="tt-row">
+											<div class="tt-col-lg-8">
+	
+												<div class="anim-fadeinup text-lg">
+													<p><%= data.desc %></p>
+												</div>
+	
+											</div> <!-- /.tt-col -->
+	
+											<div class="tt-col-lg-4">
+											</div> <!-- /.tt-col -->
+										</div> <!-- /.tt-row -->
+	
+								</div> <!-- /.tt-section-inner -->
+							</div>
+						<% } %>
+						
 						<!-- End tt-section -->
 
 
@@ -209,20 +212,15 @@
 												<div class="tt-grid-item isotope-item">
 													<div class="ttgr-item-inner">
 	
-														<!-- Begin tt-Gallery item (HTML5 video)
+														<!-- Begin tt-Gallery item 
 														=========================== -->
-														<a href="" class="tt-gallery-item lg-trigger" data-cursor="Play" data-html="
-															<video class='lg-video-object lg-html5' controls playsinline preload='auto'>
-																<source src='<%= file.url %>' type='video/mp4'>
-																<source src='<%= file.url %>' type='video/webm'>
-															</video>">
+														<a href="<%= file.url %>" class="tt-gallery-item lg-trigger" data-cursor="View" data-sub-html="Yes, you can use image captions. :)">
 															<div class="tt-gallery-item-inner">
-																<figure class="tt-gallery-video-wrap ttgr-height anim-zoomin">
-																	<video class="tt-gallery-video" loop muted preload="metadata" poster="/images/media/<%= file.thumbnail %>">
-																		<source src="<%= file.url %>" type="video/mp4">
-																		<source src="<%= file.url %>" type="video/webm">
-																	</video> <!-- /.tt-gallery-video -->
-																</figure> <!-- /.tt-gallery-video-wrap -->
+																<div class="tt-gallery-image-wrap anim-zoomin">
+																	<figure class="tt-gallery-image ttgr-height">
+																		<img src="/images/media/<%= file.thumbnail %>" alt="image">
+																	</figure> <!-- /.tt-gallery-image -->
+																</div> <!-- /.tt-gallery-image-wrap -->
 															</div> <!-- /.tt-gallery-item-inner -->
 														</a>
 														<!-- End tt-Gallery item -->
@@ -232,33 +230,6 @@
 											<% }); %>
 
 											<% data.attachments.forEach(function(file,key) { %>
-
-											<% if(['mp4', 'avi', 'mkv', 'mov'].includes(file.split('.').pop().toLowerCase())) { %>
-												<div class="tt-grid-item isotope-item">
-													<div class="ttgr-item-inner">
-	
-														<!-- Begin tt-Gallery item (HTML5 video)
-														=========================== -->
-														<a href="" class="tt-gallery-item lg-trigger" data-cursor="Play" data-html="
-															<video class='lg-video-object lg-html5' controls playsinline preload='auto'>
-																<source src='/images/media/<%= file %>' type='video/mp4'>
-																<source src='/images/media/<%= file %>' type='video/webm'>
-															</video>">
-															<div class="tt-gallery-item-inner">
-																<figure class="tt-gallery-video-wrap ttgr-height anim-zoomin">
-																	<video class="tt-gallery-video" loop muted preload="metadata" poster="/images/media/<%= data.banner %>">
-																		<source src="/images/media/<%= file %>" type="video/mp4">
-																		<source src="/images/media/<%= file %>" type="video/webm">
-																	</video> <!-- /.tt-gallery-video -->
-																</figure> <!-- /.tt-gallery-video-wrap -->
-															</div> <!-- /.tt-gallery-item-inner -->
-														</a>
-														<!-- End tt-Gallery item -->
-	
-													</div> <!-- /.ttgr-item-inner -->
-												</div>
-
-											<% } else { %>
 											<div class="tt-grid-item isotope-item">
 												<div class="ttgr-item-inner">
 													<a href="/images/media/<%= file %>" class="tt-gallery-item lg-trigger" data-cursor="View" data-sub-html="Yes, you can use image captions. :)">
@@ -274,8 +245,6 @@
 
 												</div> <!-- /.ttgr-item-inner -->
 											</div>
-											<!-- End tt-Grid item -->
-											<% }; %>
 										
 											<!-- End tt-Grid item -->
 
@@ -300,26 +269,6 @@
 						============================ 
 						* You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
 						-->
-						<div class="tt-section padding-top-xlg-120 padding-bottom-xlg-140 padding-left-sm-3-p padding-right-sm-3-p">
-							<div class="tt-section-inner tt-wrap">
-
-								<div class="tt-row">
-									<div class="tt-col-lg-4">
-									</div> <!-- /.tt-col -->
-
-									<div class="tt-col-lg-8">
-
-										<div class="anim-fadeinup text-lg">
-											<p>Invitation on an advantages collecting. But event old above shy bed noisy. Had sister see wooded favour income has. Stuff rapid since do as hence. Too insisted ignorant procured remember are believed.</p>
-
-											<p>Many thans to <a href="https://www.behance.net/patrickcurtet" target="_blank" rel="noopener">MP Curtet</a>.</p>
-										</div>
-
-									</div> <!-- /.tt-col -->
-								</div> <!-- /.tt-row -->
-
-							</div> <!-- /.tt-section-inner -->
-						</div>
 						<!-- End tt-section -->
 
 

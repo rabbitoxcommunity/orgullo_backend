@@ -7,31 +7,32 @@ const backstage = require('../controllers/api/backstage');
 const enquiries = require('../controllers/api/enquiries');
 
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', baseLink: process.env.BASE_URL  });
+  res.render('index', { title: 'Express', baseLink: process.env.BASE_URL, home: true  });
 });
 
 router.get('/media-showcase', media.getMedias)
 router.post('/submit-enquiry', enquiries.addEnquiry)
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'Express about', baseLink: process.env.BASE_URL  });
+  res.render('about', { title: 'Express about', baseLink: process.env.BASE_URL, home: false  });
 })
 router.get('/backstage', backstage.getBackstage);
 
 router.get('/branding', branding.getBrandings);
 
 router.get('/services', function(req, res, next) {
-  res.render('services', { title: 'Express media', baseLink: process.env.BASE_URL  });
+  res.render('services', { title: 'Express media', baseLink: process.env.BASE_URL, home: false  });
 })
 
 router.get('/contact', function(req, res, next) {
   res.render('contact', { 
     title: 'Express media', 
-    baseLink: process.env.BASE_URL
+    baseLink: process.env.BASE_URL,
+    home: false
   });
 })
 
 router.get('/bts', function(req, res, next) {
-  res.render('bts', { title: 'Express media' });
+  res.render('bts', { title: 'Express media', home: false });
 })
 
 router.get('/media-details/:id', media.getMediaById)

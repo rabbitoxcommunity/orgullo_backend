@@ -38,9 +38,10 @@ module.exports.addBackstage = async (req, res) => {
 
             const payload = {
                 title: fields.title,
-                desc: fields.desc, 
-                category: fields.category,
-                about: fields.about,
+                // desc: fields.desc, 
+                // category: fields.category,
+                // about: fields.about,
+                url: fields.url,
             }
 
             if(files.banner) {
@@ -77,15 +78,15 @@ module.exports.addBackstage = async (req, res) => {
                     })
                 }
 
-                let videos = []
-                for (let i = 0; i < result.files.length; i++) {
-                    videos.push({
-                        url: fields.url[i],
-                        thumbnail: result.files[i]
-                    })
-                }
+                // let videos = []
+                // for (let i = 0; i < result.files.length; i++) {
+                //     videos.push({
+                //         url: fields.url[i],
+                //         thumbnail: result.files[i]
+                //     })
+                // }
 
-                payload.videos = videos
+                payload.thumbnail = result.files[0]
             }
 
             await Backstage.create(payload)
@@ -118,9 +119,10 @@ module.exports.editBackstage = async (req, res) => {
 
             const payload = {
                 title: fields.title,
-                desc: fields.desc, 
-                category: fields.category,
-                about: fields.about,
+                // desc: fields.desc, 
+                // category: fields.category,
+                // about: fields.about,
+                url: fields.url,
             }
 
             if(files.banner) {
@@ -157,15 +159,15 @@ module.exports.editBackstage = async (req, res) => {
                     })
                 }
 
-                let videos = []
-                for (let i = 0; i < result.files.length; i++) {
-                    videos.push({
-                        url: fields.url[i],
-                        thumbnail: result.files[i]
-                    })
-                }
+                // let videos = []
+                // for (let i = 0; i < result.files.length; i++) {
+                //     videos.push({
+                //         url: fields.url[i],
+                //         thumbnail: result.files[i]
+                //     })
+                // }
 
-                payload.videos = videos
+                payload.thumbnail = result.files[0]
             }
 
             await Backstage.updateOne({ _id:fields.id }, payload)

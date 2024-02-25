@@ -14,9 +14,9 @@ $(document).ready(function($) {
             about: {
                 required: true
             },
-            desc: {
-                required: false
-            },
+            // desc: {
+            //     required: false
+            // },
             banner: {
                 required:($('#id').val())?false:true,
                 accept: "jpg,jpeg,png",

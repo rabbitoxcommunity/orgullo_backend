@@ -8,17 +8,17 @@ $(document).ready(function($) {
             title: {
                 required: true
             },
-            about: {
-                required: true
-            },
-            desc: {
-                required: false
-            },
-            banner: {
-                required:($('#id').val())?false:true,
-                accept: "jpg,jpeg,png",
-                filesize: 10,
-            },
+            // about: {
+            //     required: true
+            // },
+            // desc: {
+            //     required: false
+            // },
+            // banner: {
+            //     required:($('#id').val())?false:true,
+            //     accept: "jpg,jpeg,png",
+            //     filesize: 10,
+            // },
             url: {
                 required: true
             },

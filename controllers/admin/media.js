@@ -10,6 +10,7 @@ module.exports.mediaForm = async (req, res) => {
         if(req.params.id){
             media = await Media.findOne({_id:req.params.id});
         }
+        console.log(media);
         return res.render('admin/add-media', {
             title: 'Express',
             media
@@ -146,6 +147,7 @@ module.exports.editMedia = async (req, res) => {
                 payload.attachments = result.files
             }
 
+            let videos = []
             if(files.thumbnail) {
                 const result = await fileHandler.mediaHandler(files.thumbnail, 'public/images/media','image');
 
@@ -156,18 +158,15 @@ module.exports.editMedia = async (req, res) => {
                     })
                 }
 
-                let videos = []
                 for (let i = 0; i < result.files.length; i++) {
                     videos.push({
                         url: fields.url[i],
                         thumbnail: result.files[i]
                     })
                 }
-
-                payload.videos = videos
             }
 
-            await Media.updateOne({ _id:fields.id }, payload)
+            await Media.updateOne({ _id: fields.id }, { $set: payload, $push: { videos: videos } });
 
             return res.status(200).json({
                 success: true,
