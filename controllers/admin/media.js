@@ -115,6 +115,13 @@ module.exports.editMedia = async (req, res) => {
                     data: []
                 })
             }
+
+            const media = await Media.findById(fields.id);
+            fields.url.map((url, index) => {
+                console.log(url);
+                media.videos[index].url = url        
+            })
+            await media.save()
             
             const payload = {
                 title: fields.title,
