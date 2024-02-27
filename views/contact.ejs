@@ -1,4 +1,12 @@
 <%- include('./partials/header'); %>
+<div id="page-transition">
+	<div class="ptr-overlay"></div>
+	<div class="ptr-preloader">
+		<div class="ptr-prel-content">
+			<h1>Brewing Ideas</h1>
+		</div> <!-- /.ptr-prel-content -->
+	</div> <!-- /.ptr-preloader -->
+</div>
 <!-- *************************************
 				*********** Begin content wrap *********** 
 				************************************** -->
@@ -97,7 +105,7 @@
 										<ul class="tt-contact-info padding-bottom-40 anim-fadeinup">
 											<li>
 												<span class="tt-ci-icon"><i class="fas fa-map-marker-alt"></i></span>
-												P.O. Box : 117943, 103 A1, Gulf towers, Oud Metha - Dubai, United Arab Emirates		
+												P.O. Box : 117943, 103 A1, Gulf towers,<br> Oud Metha - Dubai, United Arab Emirates		
 											</li>
 											<li>
 												<span class="tt-ci-icon"><i class="fas fa-phone"></i></span>
@@ -105,7 +113,7 @@
 											</li>
 											<li>
 												<span class="tt-ci-icon"><i class="fas fa-envelope"></i></span>
-												<a href="mailto:company@email.com" class="tt-link">company@email.com</a>
+												<a href="mailto:company@email.com" class="tt-link">mail@orgullostudios.com</a>
 											</li>
 											<li>
 												<h6 class="no-margin-bottom margin-top-40">Follow:</h6>
@@ -122,7 +130,7 @@
 										<!-- End contact info -->
 
 									</div>
-
+									<div class="tt-col-lg-1"></div>
 									<div class="tt-col-lg-7">
 
 										<!-- Begin form 
@@ -162,7 +170,7 @@
 
 											<div class="tt-form-group">
 												<label>Select an option <span class="required">*</span></label>
-												<select class="tt-form-control" name="option" required>
+												<select class="tt-form-control form-select" name="option" required>
 													<option value="" disabled selected>Please choose an option</option>
 													<option value="Say Hello">Say hello</option>
 													<option value="New Project">New project</option>

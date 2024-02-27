@@ -92,22 +92,24 @@
 	
 														<!-- Begin tt-Gallery item 
 														=========================== -->
-														<a href="<%= data.url %>" class="tt-gallery-item lg-trigger" data-cursor="View" data-sub-html="Yes, you can use image captions. :)">
+														<a href="<%= data.url %>" class="tt-gallery-item lg-trigger" data-cursor="View">
 															<div class="tt-gallery-item-inner">
 																<div class="tt-gallery-image-wrap anim-zoomin">
 																	<figure class="tt-gallery-image ttgr-height">
 																		<img src="/images/backstage/<%= data.thumbnail %>" alt="image">
 																	</figure> <!-- /.tt-gallery-image -->
 																</div> <!-- /.tt-gallery-image-wrap -->
-															</div> <!-- /.tt-gallery-item-inner -->
+															</div>
+															<div class="pgi-caption">
+																<div class="pgi-caption-inner">
+																	<h2 class="pgi-title"><%= data.title %></h2>
+																	
+																</div> <!-- /.pgi-caption-inner -->
+															</div>
+															 <!-- /.tt-gallery-item-inner -->
 														</a>
 														<!-- End tt-Gallery item -->
-														<div class="pgi-caption">
-															<div class="pgi-caption-inner">
-																<h2 class="pgi-title"><%= data.title %></h2>
-																
-															</div> <!-- /.pgi-caption-inner -->
-														</div>
+
 													</div> <!-- /.ttgr-item-inner -->
 												</div>
 											<% }); %>    
