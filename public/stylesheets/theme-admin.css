@@ -1507,7 +1507,7 @@ div.dt-button-info h2 {
 
 /* 19. Auth*/
 .bg-login {
-  background: url("../images/bg-login.jpg");
+  background: url("../images/login.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -1546,3 +1546,9 @@ div.dt-button-info h2 {
   padding: 15px;
 }
 /*# sourceMappingURL=theme.css.map */
+
+label.error {
+  color: #f85359;
+  font-weight: 200;
+  font-size: 14px;
+}

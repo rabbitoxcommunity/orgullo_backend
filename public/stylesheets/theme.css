@@ -1854,13 +1854,13 @@ body:not(.is-mobile) .tt-ol-menu-list>li>.tt-ol-submenu-trigger:hover>a,
 }
 
 .tt-ol-menu-toggle-btn span::before {
-	top: -4px;
+	top: -7px;
 	width: 24px;
 }
 
 .tt-ol-menu-toggle-btn span::after {
 	top: auto;
-	bottom: -4px;
+	bottom: -5px;
 	width: 18px;
 }
 
@@ -11493,4 +11493,11 @@ img.tt-logo-light.magnetic-item {
 }
 select{
 	-webkit-appearance: none !important;
+}
+
+
+label.error {
+    color: #f85359;
+    font-weight: 200;
+    font-size: 14px;
 }

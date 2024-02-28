@@ -117,8 +117,7 @@ module.exports.editMedia = async (req, res) => {
             }
 
             const media = await Media.findById(fields.id);
-            fields.url.map((url, index) => {
-                console.log(url);
+            fields?.url?.map((url, index) => {
                 media.videos[index].url = url        
             })
             await media.save()
@@ -165,10 +164,17 @@ module.exports.editMedia = async (req, res) => {
                     })
                 }
 
-                for (let i = 0; i < result.files.length; i++) {
+                if(Array.isArray(fields.url)) {
+                    for (let i = 0; i < result.files.length; i++) {
+                        videos.push({
+                            url: fields.url[i], 
+                            thumbnail: result.files[i]
+                        })
+                    }
+                }else {
                     videos.push({
-                        url: fields.url[i],
-                        thumbnail: result.files[i]
+                        url: fields.url, 
+                        thumbnail: result.files
                     })
                 }
             }

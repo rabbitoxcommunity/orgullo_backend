@@ -10,6 +10,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express', baseLink: process.env.BASE_URL, home: true  });
 });
 
+router.get('/works', function(req, res, next) {
+  res.render('works', { title: 'Express', baseLink: process.env.BASE_URL, home: true  });
+});
+
 router.get('/media-showcase', media.getMedias)
 router.post('/submit-enquiry', enquiries.addEnquiry)
 router.get('/about', function(req, res, next) {
