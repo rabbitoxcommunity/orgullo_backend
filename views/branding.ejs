@@ -89,6 +89,7 @@
 													Note 2: You can add up to 5 images! 
 													-->
 													<div class="ptl-item-thumbnails">
+														<% data.attachments.splice(5, data.attachments.length - 5); %>
 														<% data.attachments.forEach(function(file,key) { %>
 															<% if(!['mp4', 'avi', 'mkv', 'mov'].includes(file.split('.').pop().toLowerCase())) { %>
 																<div class="ptli-image">
