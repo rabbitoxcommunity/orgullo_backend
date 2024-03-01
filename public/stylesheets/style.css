@@ -1,0 +1,32 @@
+.sm-none{
+    display: block;
+}
+.sm-block{
+    display: none;
+}
+.tt-accordion-content p{
+    font-size: 19px;
+}
+.arrow-sm-block{
+    display: none !important;
+}
+@media only screen and (max-width: 600px) {
+    .arrow-sm-block{
+        display: block !important;
+    }
+    .sm-none{
+        display: none;
+    }
+    .sm-block{
+        display: block;
+    }
+    .tt-logo-wall>li{
+        border-bottom: 1px solid #2e2e2e;
+    }
+    .pt-150-sm{
+        padding-top:150px
+    }
+    .tt-heading.tt-heading-lg .tt-heading-title, .tt-heading.tt-heading-xlg .tt-heading-title{
+        font-size:38px !important;
+    }
+  }

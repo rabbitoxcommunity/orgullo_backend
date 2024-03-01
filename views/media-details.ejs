@@ -1,4 +1,13 @@
 <%- include('./partials/header'); %>
+<div id="page-transition">
+	<div class="ptr-overlay"></div>
+	<div class="ptr-preloader">
+		<div class="ptr-prel-content">
+			<h1>Framing Ideas</h1>
+		
+		</div> <!-- /.ptr-prel-content -->
+	</div> <!-- /.ptr-preloader -->
+</div>
 				<!-- *************************************
 				*********** Begin content wrap *********** 
 				************************************** -->
@@ -134,7 +143,7 @@
 									-->
 									<div class="tt-image tti-fixed-height">
 										<figure>
-											<img class="anim-image-parallax tt-lazy" src="/images/media/<%= firstAttachment %>" data-src="/images/media/<%= firstAttachment %>" alt="image">
+											<img class="anim-image-parallax tt-lazy" src="/images/media/<%= firstAttachment %>" data-src="/images/media/<%= firstAttachment %>"  alt="image">
 											<!-- <figcaption>
 												Image Caption
 											</figcaption> -->
@@ -214,11 +223,11 @@
 	
 														<!-- Begin tt-Gallery item 
 														=========================== -->
-														<a href="<%= file.url %>" class="tt-gallery-item lg-trigger" data-cursor="View" data-sub-html="Yes, you can use image captions. :)">
+														<a href="<%= file.url %>" class="tt-gallery-item lg-trigger" data-cursor="View">
 															<div class="tt-gallery-item-inner">
 																<div class="tt-gallery-image-wrap anim-zoomin">
 																	<figure class="tt-gallery-image ttgr-height">
-																		<img src="/images/media/<%= file.thumbnail %>" alt="image">
+																		<img src="/images/media/<%= file.thumbnail %>" class="media" alt="image">
 																	</figure> <!-- /.tt-gallery-image -->
 																</div> <!-- /.tt-gallery-image-wrap -->
 															</div> <!-- /.tt-gallery-item-inner -->
@@ -232,7 +241,7 @@
 											<% data.attachments.forEach(function(file,key) { %>
 											<div class="tt-grid-item isotope-item">
 												<div class="ttgr-item-inner">
-													<a href="/images/media/<%= file %>" class="tt-gallery-item lg-trigger" data-cursor="View" data-sub-html="Yes, you can use image captions. :)">
+													<a href="/images/media/<%= file %>" class="tt-gallery-item lg-trigger" data-cursor="View">
 														<div class="tt-gallery-item-inner">
 															<div class="tt-gallery-image-wrap anim-zoomin">
 																<figure class="tt-gallery-image ttgr-height">

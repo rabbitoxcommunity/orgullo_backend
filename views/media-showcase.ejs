@@ -1,4 +1,13 @@
 <%- include('./partials/header'); %>
+<div id="page-transition">
+    <div class="ptr-overlay"></div>
+    <div class="ptr-preloader">
+        <div class="ptr-prel-content">
+            <h1>Weaving Stories</h1>
+     
+        </div> <!-- /.ptr-prel-content -->
+    </div> <!-- /.ptr-preloader -->
+</div>
 
 				
 <!-- *************************************
@@ -6,35 +15,7 @@
 ************************************** -->
 <div id="content-wrap">
     <div id="page-header" class="ph-cap-lg ph-ghost-scroll ph-image-cropped ph-image-cover-2 ph-content-parallax">
-        <div class="page-header-inner tt-wrap">
-
-            <!-- Begin page header image 
-            ============================= -->
-            <!-- <div class="ph-image">
-                <div class="ph-image-inner">
-                    <img src="assets/img/page-header/ph-3.jpg" alt="Image">
-                </div>
-            </div> -->
-            <!-- End page header image -->
-
-            <!-- Begin page header caption
-            =============================== 
-            Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
-            -->
-            <div class="ph-caption">
-                <div class="ph-caption-subtitle">
-                    <div class="ph-appear">Selected Works</div>
-                </div>
-                <h1 class="ph-caption-title">
-                    <div class="ph-appear">Media Showcase</div>
-                </h1>
-                <div class="ph-caption-title-ghost">
-                    <div class="ph-appear">Media Showcase</div>
-                </div>
-            </div>
-            <!-- End page header caption -->
-
-        </div> <!-- /.page-header-inner -->
+        <!-- /.page-header-inner -->
 
         <!-- Begin scroll down (you can change "data-offset" to set scroll top offset) 
         ======================= -->
@@ -63,7 +44,7 @@
         * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
         -->
         <div class="tt-section">
-            <div class="tt-section-inner">
+            <div class="tt-section-inner padding-top-xlg-150">
 
                 <!-- Begin portfolio grid (works combined with tt-Ggrid!)
                 ========================== 
@@ -107,7 +88,7 @@
                                                 <div class="pgi-image-holder">
                                                     <div class="pgi-image-inner anim-zoomin">
                                                         <figure class="pgi-image ttgr-height">
-                                                            <img src="/images/media/<%= data.banner %>" alt="image">
+                                                            <img src="/images/media/<%= data.banner %>" class="media" alt="image">
                                                         </figure> <!-- /.pgi-image -->
                                                     </div> <!-- /.pgi-image-inner -->
                                                 </div> <!-- /.pgi-image-holder -->
