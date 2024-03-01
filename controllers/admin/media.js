@@ -78,10 +78,17 @@ module.exports.addMedia = async (req, res) => {
                 }
 
                 let videos = []
-                for (let i = 0; i < result.files.length; i++) {
+                if(Array.isArray(fields.url)) {
+                    for (let i = 0; i < result.files.length; i++) {
+                        videos.push({
+                            url: fields.url[i], 
+                            thumbnail: result.files[i]
+                        })
+                    }
+                }else {
                     videos.push({
-                        url: fields.url[i],
-                        thumbnail: result.files[i]
+                        url: fields.url, 
+                        thumbnail: result.files[0]
                     })
                 }
 
@@ -116,11 +123,12 @@ module.exports.editMedia = async (req, res) => {
                 })
             }
 
-            const media = await Media.findById(fields.id);
-            fields?.url?.map((url, index) => {
-                media.videos[index].url = url        
-            })
-            await media.save()
+            // const media = await Media.findById(fields.id);
+            // fields?.url?.map((url, index) => {
+            //     console.log(url, index);
+            //     media.videos[index].url = url        
+            // })
+            // await media.save()
             
             const payload = {
                 title: fields.title,
@@ -163,7 +171,9 @@ module.exports.editMedia = async (req, res) => {
                         message: "Server error"
                     })
                 }
-
+                // console.log(fields.url);
+                // fields.url = fields.url.reverse();
+                // console.log(fields.url);
                 if(Array.isArray(fields.url)) {
                     for (let i = 0; i < result.files.length; i++) {
                         videos.push({
@@ -174,7 +184,7 @@ module.exports.editMedia = async (req, res) => {
                 }else {
                     videos.push({
                         url: fields.url, 
-                        thumbnail: result.files
+                        thumbnail: result.files[0]
                     })
                 }
             }
