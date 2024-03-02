@@ -1597,6 +1597,7 @@ body:not(.tt-boxed) .tt-header-inner,
 		padding-bottom: 35%;
 		padding-left: 15px;
 		padding-right: 15px;
+		vertical-align: sub;
 	}
 }
 
@@ -6690,12 +6691,11 @@ body.tt-portfolio-hover-carousel-on.tt-light-bg-on #ball .ball-drag::after {
 	height: 100%;
 	object-fit: cover;
 	object-position: 50% 50%;
+}
+.tt-gallery-image img.backstage {
 	-webkit-filter: grayscale(100%);
 	/* Safari 6.0 - 9.0 */
 	filter: grayscale(100%);
-}
-.tt-gallery-image img.media {
-	filter: grayscale(0%);
 }
 
 /* Image parallax and hover zoom pseudo wraps (added by .js) */
@@ -9073,7 +9073,8 @@ input[type=range] {
 }
 
 .tt-contact-info>li {
-	padding: 3px 0;
+	padding: 5px 0;
+	display: flex;
 }
 
 .tt-ci-icon {

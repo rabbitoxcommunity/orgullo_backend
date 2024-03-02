@@ -29,4 +29,7 @@
     .tt-heading.tt-heading-lg .tt-heading-title, .tt-heading.tt-heading-xlg .tt-heading-title{
         font-size:38px !important;
     }
+    img.tt-logo-light.magnetic-item {
+        width: 100%;
+    }
   }
