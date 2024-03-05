@@ -30,6 +30,9 @@
         font-size:38px !important;
     }
     img.tt-logo-light.magnetic-item {
-        width: 100%;
+        width: 100% !important;
+    }
+    .works-pt{
+        padding-top: 100px;
     }
   }
