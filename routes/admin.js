@@ -17,6 +17,8 @@ router.delete('/media', media.deleteMedia);
 router.get('/manage-media', media.listMedias);
 router.get('/delete-media/:id', media.deleteMedia);
 
+router.post('/update-media', media.updateMedia)
+
 router.get('/add-backstage', backstage.backstageForm);
 router.get('/edit-backstage/:id', backstage.backstageForm);
 router.post('/backstage', backstage.addBackstage);

@@ -90,21 +90,21 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="title">Url</label>
-                                                    <input id="<%= data._id %>-url" class="form-control" placeholder="Type here"
+                                                    <input class="form-control" placeholder="Type here"
                                                     type="text" name="url" value="<%= data && data.url %>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="title">Upload Thumbnail</label>
-                                                    <input id="<%= data._id %>-thumbnail" class="form-control" placeholder="Upload" type="file" name="thumbnail">
+                                                    <input class="form-control" placeholder="Upload" type="file" name="thumbnail" value="/images/media/<%= data.thumbnail %>">
                                                 </div>
                                             </div>
                                             <div class="col-md-2 mb-3">
                                                 <img src="/images/media/<%= data.thumbnail %>" style="object-fit: contain;" height="80" width="100%" alt="">
                                             </div>
                                             <div class="col-md-1 text-left" style="display: flex;align-items: center;gap: 10px;">
-                                                <button type="button" class="btn btn-primary" onclick="submitSingleFile('<%= data._id %>')" id="btnfileSubmit">submit</button>
+                                                <button type="button" class="btn btn-primary" id="btnfileSubmit">submit</button>
                                                 <button type="button" class="btn btn-danger" id="btnfileDelete">delete</button>
                                             </div>
                                         <% }) %>

@@ -17,8 +17,10 @@ module.exports.mediaHandler = async (files, mediaPath, fileType = null, filePref
                     if (media.originalFilename !== "") {
                         const response = await moveFile(media, mediaPath, filePrefix);
                         result.files.push(response);
-                        order.push(key);
+                    } else {
+                        result.files.push('');
                     }
+                    order.push(key);
                 })
             );
             result.error_status = 0;

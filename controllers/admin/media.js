@@ -10,7 +10,7 @@ module.exports.mediaForm = async (req, res) => {
         if(req.params.id){
             media = await Media.findOne({_id:req.params.id});
         }
-        console.log(media);
+
         return res.render('admin/add-media', {
             title: 'Express',
             media
@@ -123,12 +123,13 @@ module.exports.editMedia = async (req, res) => {
                 })
             }
 
-            // const media = await Media.findById(fields.id);
+            const media = await Media.findById(fields.id);
             // fields?.url?.map((url, index) => {
             //     console.log(url, index);
             //     media.videos[index].url = url        
             // })
-            // await media.save()
+
+            console.log();
             
             const payload = {
                 title: fields.title,
@@ -171,25 +172,50 @@ module.exports.editMedia = async (req, res) => {
                         message: "Server error"
                     })
                 }
+                console.log(result);
                 // console.log(fields.url);
                 // fields.url = fields.url.reverse();
                 // console.log(fields.url);
                 if(Array.isArray(fields.url)) {
-                    for (let i = 0; i < result.files.length; i++) {
+                    let s = result.files;
+                    let d = media.videos;
+                    let f = s.splice(d.length);
+
+                    console.log(s,d,f);
+
+                    for (let i = 0; i < d.length; i++) {
+                        //console.log(d[i], d[i]);
+                        media.videos[i].url = fields.url[i];
+                        if (s[i]) {
+                            media.videos[i].thumbnail = s[i]
+                        }
+                        
+                    }
+
+                    // for (let i = 0; i < f.length; i++) {
+                    //     //console.log(fields.url[i], result.files[i]);
+                    //     if (result.files[i]) {
+                    //         videos.push({
+                    //             url: fields.url[i], 
+                    //             thumbnail: result.files[i]
+                    //         })
+                    //     }
+                    // }
+                }else {
+                    if (result.files[i] !== "" ) {
                         videos.push({
-                            url: fields.url[i], 
-                            thumbnail: result.files[i]
+                            url: fields.url, 
+                            thumbnail: result.files[0]
                         })
                     }
-                }else {
-                    videos.push({
-                        url: fields.url, 
-                        thumbnail: result.files[0]
-                    })
                 }
             }
 
-            await Media.updateOne({ _id: fields.id }, { $set: payload, $push: { videos: videos } });
+            console.log(media.videos);
+            console.log(videos);
+
+            await media.save()
+            //await Media.updateOne({ _id: fields.id }, { $set: payload, $push: { videos: videos } });
 
             return res.status(200).json({
                 success: true,
@@ -225,6 +251,29 @@ module.exports.listMedias = async (req, res) => {
             title: 'Express',
             data: medias
         });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Server error"
+        })
+    }
+}
+
+module.exports.updateMedia = async (req, res) => {
+    try {
+        const form = new formidable.IncomingForm({multiples: true});
+        await form.parse(req, async (err, fields, files) => {
+            if (err) {
+                return res.status(200).send({
+                    status: false,
+                    message: "Invalid Request.",
+                    data: []
+                })
+            }
+
+            console.log(files, fields);
+        })
+        
     } catch (err) {
         return res.status(500).json({
             success: false,

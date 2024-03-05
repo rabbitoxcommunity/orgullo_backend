@@ -1,3 +1,59 @@
+function submitSingleFile(id) {
+
+    $("#media-button").prop('disabled', true);
+    $("#spinner-loader").css('display', 'block');
+
+    var fileInput = $(`${id}-thumbnail`);
+    console.log(fileInput.files);
+
+    // Create FormData object
+    var formData = new FormData();
+
+    // Append the file input to FormData
+    formData.append('thumbnail', fileInput.files);
+
+    formData.append('id', id);
+    formData.append('url', id);
+
+    $.ajax({
+        url: base_url+'admin/update-media',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (data) {             
+            if(data.success){
+                $('#response-modal').css('display', 'block');
+                $('#response-modal').css('display', 'block').addClass('alert-primary');
+                $('#response-modal').html(data['message'])
+                window.scrollTo(0, 0);
+                setTimeout(function() { 
+                    window.location.reload();
+                }, 1000);
+            }else{
+                $('#media-form')[0].reset();
+                $('#response-modal').css('display', 'block').addClass('alert-danger');
+                $("#response-modal").html(data['message']);
+                window.scrollTo(0, 0);
+                setTimeout(function() { 
+                    $('#response-modal').css('display', 'none').removeClass('alert-danger');
+                    $("#media-button").prop('disabled', false);
+                }, 1000);
+            }
+        },
+        error: function (data) {
+            $('#response-modal').css('display', 'block').addClass('alert-danger');
+            $("#response-modal").html(data.responseJSON.message);
+            setTimeout(function() { 
+                $('#response-modal').css('display', 'none').removeClass('alert-danger');
+                $("#media-button").prop('disabled', false);
+            }, 1000);
+        }
+    });
+}
+
+
 $(document).ready(function($) {
     $.validator.addMethod('filesize', function (value, element, param) {
         return this.optional(element) || (element.files[0].size <= param * 1000000)
@@ -18,6 +74,26 @@ $(document).ready(function($) {
         }
     });
 
+    // $("#btnfileSubmit").click(function(id){
+
+    //     alert("form submitted");
+    // }); 
+
+    $("#btnfileDelete").click(function(id){
+        if (confirm("Are you sure you want to delete?")) {
+            $.ajax({
+                url: base_url+'admin/media/' + $('#id').val(),
+                type: "DELETE",
+                success: function(response) {
+                    console.log("Delete successful", response);
+                },
+                error: function(error) {
+                    console.error("Error deleting", error);
+                }
+            });
+        }
+    }); 
+
     $("#media-form").validate({
         rules: {
             title: {
@@ -29,17 +105,17 @@ $(document).ready(function($) {
             // desc: {
             //     required: false
             // },
-            banner: {
-                required:($('#id').val())?false:true,
-                accept: "jpg,jpeg,png",
-                filesize: 10,
-            },
-            url: {
-                required: true
-            },
-            thumbnail: {
-                required: true
-            }
+            // banner: {
+            //     required:($('#id').val())?false:true,
+            //     accept: "jpg,jpeg,png",
+            //     filesize: 10,
+            // },
+            // url: {
+            //     required: true
+            // },
+            // thumbnail: {
+            //     required: true
+            // }
 
         },
         messages: {
