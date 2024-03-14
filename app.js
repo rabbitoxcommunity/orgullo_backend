@@ -24,7 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const whitelist = ['https://www.orgullostudios.com', 'https://orgullostudios.com']
+const whitelist = JSON.parse(process.env.WHITE_LIST ?? "[]")
+console.log(whitelist);
 
 const corsOptions = {
   origin(origin, callback) {

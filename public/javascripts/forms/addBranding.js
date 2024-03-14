@@ -19,7 +19,7 @@ $(document).ready(function($) {
             // },
             banner: {
                 required:($('#id').val())?false:true,
-                accept: "jpg,jpeg,png",
+                accept: "mp4,mkv,MOV",
                 filesize: 10,
             },
         },
