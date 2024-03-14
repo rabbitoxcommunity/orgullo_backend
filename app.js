@@ -24,16 +24,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// To remove CROS (cross-resource-origin-platform) problem
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*"); // to allow all client we use *
-  res.setHeader(
-      "Access-Control-Allow-Methods",
-      "OPTIONS,GET,POST,PUT,PATCH,DELETE"
-  ); //these are the allowed methods
-  res.setHeader("Access-Control-Allow-Headers", "*"); // allowed headers (Auth for extra data related to authoriaztion)
-  next();
-});
+const corsOptions = {
+  origin(origin, callback) {
+    console.log(origin, "origin");
+
+    if (!origin) {
+      return callback(null, true);
+    }
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use('/', indexRouter);
 
