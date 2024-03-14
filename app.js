@@ -25,11 +25,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const whitelist = JSON.parse(process.env.WHITE_LIST ?? "[]")
-console.log(whitelist);
 
 const corsOptions = {
   origin(origin, callback) {
-    console.log(origin, "origin");
+    // console.log(origin, "origin");
 
     if (!origin) {
       return callback(null, true);

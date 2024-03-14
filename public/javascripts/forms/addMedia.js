@@ -1,19 +1,19 @@
-function submitSingleFile(id) {
+function submitSingleFile(id, mediaId) {
 
-    $("#media-button").prop('disabled', true);
-    $("#spinner-loader").css('display', 'block');
+    $(`#${id}-button`).prop('disabled', true);
+    $(`#${id}-spinner-loader`).css('display', 'block');
 
-    var fileInput = $(`${id}-thumbnail`);
-    console.log(fileInput.files);
+    var fileInput = $(`#${id}-thumbnail`)[0].files[0];
+    var url = $(`#${id}-url`).val()
 
     // Create FormData object
     var formData = new FormData();
 
     // Append the file input to FormData
-    formData.append('thumbnail', fileInput.files);
-
-    formData.append('id', id);
-    formData.append('url', id);
+    formData.append('mediaId', mediaId);
+    formData.append('videoId', id);
+    formData.append('url', url);
+    formData.append('thumbnail', fileInput);
 
     $.ajax({
         url: base_url+'admin/update-media',
@@ -24,31 +24,45 @@ function submitSingleFile(id) {
         cache: false,
         success: function (data) {             
             if(data.success){
-                $('#response-modal').css('display', 'block');
-                $('#response-modal').css('display', 'block').addClass('alert-primary');
-                $('#response-modal').html(data['message'])
-                window.scrollTo(0, 0);
-                setTimeout(function() { 
-                    window.location.reload();
-                }, 1000);
+                window.location.reload();
             }else{
-                $('#media-form')[0].reset();
-                $('#response-modal').css('display', 'block').addClass('alert-danger');
-                $("#response-modal").html(data['message']);
-                window.scrollTo(0, 0);
-                setTimeout(function() { 
-                    $('#response-modal').css('display', 'none').removeClass('alert-danger');
-                    $("#media-button").prop('disabled', false);
-                }, 1000);
+                window.location.reload();
             }
         },
         error: function (data) {
-            $('#response-modal').css('display', 'block').addClass('alert-danger');
-            $("#response-modal").html(data.responseJSON.message);
-            setTimeout(function() { 
-                $('#response-modal').css('display', 'none').removeClass('alert-danger');
-                $("#media-button").prop('disabled', false);
-            }, 1000);
+            window.location.reload();
+        }
+    });
+}
+
+function deleteSingleFile(id, mediaId) {
+
+    $(`#${id}-deletebutton`).prop('disabled', true);
+    // $(`#${id}-spinner-loader`).css('display', 'block');
+
+    // Create FormData object
+    var formData = new FormData();
+
+    // Append the file input to FormData
+    formData.append('mediaId', mediaId);
+    formData.append('videoId', id);
+
+    $.ajax({
+        url: base_url+'admin/delete-video-media',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (data) {             
+            if(data.success){
+                window.location.reload();
+            }else{
+                window.location.reload();
+            }
+        },
+        error: function (data) {
+            window.location.reload();
         }
     });
 }

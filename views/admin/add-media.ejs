@@ -85,27 +85,34 @@
                                             </div>
                                         </div>
                                         <% media && media.videos.forEach(function(data,key) { %>
-                                            <!-- <input type="hidden" id="id" name="id"  value="<%= data && data._id %>"> -->
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="title">Url</label>
                                                     <input id="<%= data._id %>-url" class="form-control" placeholder="Type here"
-                                                    type="text" name="url" value="<%= data && data.url %>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="title">Upload Thumbnail</label>
-                                                    <input id="<%= data._id %>-thumbnail" class="form-control" placeholder="Upload" type="file" name="thumbnail">
+                                                    type="text" value="<%= data && data.url %>">
                                                 </div>
                                             </div>
                                             <div class="col-md-2 mb-3">
                                                 <img src="/images/media/<%= data.thumbnail %>" style="object-fit: contain;" height="80" width="100%" alt="">
                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="title">Upload Thumbnail</label>
+                                                    <input id="<%= data._id %>-thumbnail" class="form-control" placeholder="Upload" type="file">
+                                                </div>
+                                            </div>
+                                            
                                             <div class="col-md-1 text-left" style="display: flex;align-items: center;gap: 10px;">
-                                                <button type="button" class="btn btn-primary" onclick="submitSingleFile('<%= data._id %>')" id="btnfileSubmit">submit</button>
-                                                <button type="button" class="btn btn-danger" id="btnfileDelete">delete</button>
+                                            <button id="<%= data._id %>-button" onclick="submitSingleFile('<%= data._id %>', '<%=media._id%>')" id="btnfileSubmit"
+                                                class="btn btn-primary">update
+                                                <div style="display: none;" class="spinner-border" id="<%= data._id %>-spinner-loader" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                            </button>
+
+                                                <!-- <button type="button" class="btn btn-primary" onclick="submitSingleFile('<%= data._id %>', '<%=media._id%>')" id="btnfileSubmit">update</button> -->
+                                                <button id="<%= data._id %>-deletebutton" onclick="deleteSingleFile('<%= data._id %>', '<%=media._id%>')" type="button" class="btn btn-danger">delete</button>
                                             </div>
                                         <% }) %>
                                     
@@ -126,9 +133,10 @@
                                                             <input class="form-control" placeholder="Type here" type="text" name="url">
                                                         </td>
                                                         <td class="w-50 p-2"><input class="form-control" placeholder="Upload" type="file" name="thumbnail"></td>
-                                                        <td>
-                                                            <button class="delete-button btn btn-danger" @click="controller.deleteRow()">Delete</button>
-                                                        </td>
+                                                        <!-- <td>
+                                                            <button type="button" class="btn btn-primary" onclick="" id="btnfileSubmit">submit</button>
+                                                        </td> -->
+                                                        <td><button class="delete-button btn btn-danger" @click="controller.deleteRow()">delete</button></td>
                                                     </tr>
                                                 </template>
 
