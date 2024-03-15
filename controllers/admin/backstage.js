@@ -136,7 +136,16 @@ module.exports.editBackstage = async (req, res) => {
 
                 payload.banner = result.files[0]
             }
-            if(files.attachments) {
+
+            let fileExist = false
+            if(files.attachments.length> 0) fileExist = true
+            else {
+                if (files.attachments.originalFilename) {
+                    fileExist = true
+                }
+            }
+
+            if(fileExist) {
                 const result = await fileHandler.mediaHandler(files.attachments, 'public/images/backstage','image');
 
                 if (result.error_status) {
