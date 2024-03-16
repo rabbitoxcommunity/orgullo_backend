@@ -1644,24 +1644,7 @@ body.tt-smooth-scroll.tt-ol-menu-open .scrollbar-track {
 }
 
 /* Overlay menu list item counter */
-@media (min-width: 992px) {
-	.tt-overlay-menu.tt-ol-menu-count .tt-ol-menu-list {
-		counter-reset: ol-menu-list-counter;
-	}
 
-	.tt-overlay-menu.tt-ol-menu-count .tt-ol-menu-list>li::before {
-		position: absolute;
-		counter-increment: ol-menu-list-counter;
-		content: "" counter(ol-menu-list-counter, decimal-leading-zero);
-		top: 12px;
-		left: -30px;
-		line-height: 1;
-		font-size: 14px;
-		font-weight: normal;
-		color: #FFF;
-		opacity: 0.4;
-	}
-}
 
 /* Overlay menu list links (master parent) */
 .tt-ol-menu-list>li>a,
