@@ -27,7 +27,7 @@ router.get('/services', function(req, res, next) {
   res.render('services', { title: 'Express media', baseLink: process.env.BASE_URL, home: false  });
 })
 
-router.get('/contact', function(req, res, next) {
+router.get('/contact-us', function(req, res, next) {
   res.render('contact', { 
     title: 'Express media', 
     baseLink: process.env.BASE_URL,
