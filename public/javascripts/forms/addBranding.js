@@ -45,7 +45,7 @@ $(document).ready(function($) {
             }
 
             $.ajax({
-                url: base_url+'admin/branding',
+                url: base_url+'/admin/branding',
                 type: http_type,
                 data: formData,
                 processData: false,
@@ -58,7 +58,7 @@ $(document).ready(function($) {
                         $('#response-modal').html(data['message'])
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
-                            window.location.href = base_url+'admin/manage-branding';
+                            window.location.href = base_url+'/admin/manage-branding';
                         }, 1000);
                     }else{
                         $('#branding-form')[0].reset();

@@ -48,7 +48,7 @@ $(document).ready(function($) {
             }
 
             $.ajax({
-                url: base_url+'admin/backstage',
+                url: base_url+'/admin/backstage',
                 type: http_type,
                 data: formData,
                 processData: false,
@@ -61,7 +61,7 @@ $(document).ready(function($) {
                         $('#response-modal').html(data['message'])
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
-                            window.location.href = base_url+'admin/manage-backstage';
+                            window.location.href = base_url+'/admin/manage-backstage';
                         }, 1000);
                     }else{
                         $('#backstage-form')[0].reset();

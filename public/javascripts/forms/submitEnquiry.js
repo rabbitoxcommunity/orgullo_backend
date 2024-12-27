@@ -33,7 +33,7 @@ $(document).ready(function($) {
             var formData = new FormData(form);
             
             $.ajax({
-                url: base_url+'submit-enquiry',
+                url: base_url+'/submit-enquiry',
                 type: 'POST',
                 data: formData,
                 processData: false,

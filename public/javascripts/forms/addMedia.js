@@ -16,7 +16,7 @@ function submitSingleFile(id, mediaId) {
     formData.append('thumbnail', fileInput);
 
     $.ajax({
-        url: base_url+'admin/update-media',
+        url: base_url+'/admin/update-media',
         type: 'POST',
         data: formData,
         processData: false,
@@ -48,7 +48,7 @@ function deleteSingleFile(id, mediaId) {
     formData.append('videoId', id);
 
     $.ajax({
-        url: base_url+'admin/delete-video-media',
+        url: base_url+'/admin/delete-video-media',
         type: 'POST',
         data: formData,
         processData: false,
@@ -76,7 +76,7 @@ $(document).ready(function($) {
     $("#deleteButton").on("click", function() {
         if (confirm("Are you sure you want to delete?")) {
             $.ajax({
-                url: base_url+'admin/media/' + $('#id').val(),
+                url: base_url+'/admin/media/' + $('#id').val(),
                 type: "DELETE",
                 success: function(response) {
                     console.log("Delete successful", response);
@@ -96,7 +96,7 @@ $(document).ready(function($) {
     $("#btnfileDelete").click(function(id){
         if (confirm("Are you sure you want to delete?")) {
             $.ajax({
-                url: base_url+'admin/media/' + $('#id').val(),
+                url: base_url+'/admin/media/' + $('#id').val(),
                 type: "DELETE",
                 success: function(response) {
                     console.log("Delete successful", response);
@@ -154,7 +154,7 @@ $(document).ready(function($) {
             }
 
             $.ajax({
-                url: base_url+'admin/media',
+                url: base_url+'/admin/media',
                 type: http_type,
                 data: formData,
                 processData: false,
@@ -167,7 +167,7 @@ $(document).ready(function($) {
                         $('#response-modal').html(data['message'])
                         window.scrollTo(0, 0);
                         setTimeout(function() { 
-                            window.location.href = base_url+'admin/manage-media';
+                            window.location.href = base_url+'/admin/manage-media';
                         }, 1000);
                     }else{
                         $('#media-form')[0].reset();

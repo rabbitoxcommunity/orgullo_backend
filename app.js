@@ -24,20 +24,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 const whitelist = JSON.parse(process.env.WHITE_LIST ?? "[]")
 
 const corsOptions = {
-  origin(origin, callback) {
-    // console.log(origin, "origin");
-
-    if (!origin) {
-      return callback(null, true);
-    }
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
+  origin: function (origin, callback) {
+      console.log("Request Origin:", origin);
+      if (!origin || whitelist.includes(origin)) {
+          callback(null, true);
+      } else {
+          console.error("Blocked by CORS:", origin);
+          callback(new Error("Not allowed by CORS"));
+      }
   },
   credentials: true,
 };

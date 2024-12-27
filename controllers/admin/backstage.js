@@ -44,7 +44,7 @@ module.exports.addBackstage = async (req, res) => {
                 url: fields.url,
             }
 
-            if(files.banner) {
+            if(files?.banner) {
                 const result = await fileHandler.mediaHandler(files.banner, 'public/images/backstage','image');
                 if (result.error_status) {
                     return res.status(500).json({

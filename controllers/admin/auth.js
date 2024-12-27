@@ -18,43 +18,53 @@ module.exports.getForm = async (req, res) => {
 
 module.exports.submitLogin = async (req, res) => {
     try {
-        const form = new formidable.IncomingForm({multiples: true});
-        await form.parse(req, async (err, fields, files) => {
+        const form = new formidable.IncomingForm();
+
+        form.parse(req, async (err, fields, files) => {
+          
             if (err) {
-                return res.status(200).send({
+                return res.status(400).send({
                     success: false,
-                    message: "Invalid Request.",
-                    data: []
-                })
+                    message: "Invalid request. Please try again.",
+                });
             }
 
-            if(fields.email != process.env.ADMIN_EMAIL){
-                return res.status(200).send({
+            // Validate email
+            if (fields.email !== process.env.ADMIN_EMAIL) {
+                return res.status(400).send({
                     success: false,
-                    message: "Error! Incorrect Email.",
-                })
+                    message: "Error! Incorrect email.",
+                });
             }
-    
-            if(fields.password != process.env.ADMIN_PASS){
-                return res.status(200).send({
+
+            // Validate password
+            if (fields.password !== process.env.ADMIN_PASS) {
+                return res.status(400).send({
                     success: false,
-                    message: "Error! Incorrect Password.",
-                })
+                    message: "Error! Incorrect password.",
+                });
             }
-    
-            const accessToken = await jwt.sign({ email: process.env.ADMIN_EMAIL }, process.env.JWT_SECRET, {
-                expiresIn: "100d"
-            });
-    
+
+            // Generate JWT token
+            const accessToken = jwt.sign(
+                { email: process.env.ADMIN_EMAIL },
+                process.env.JWT_SECRET,
+                { expiresIn: "100d" }
+            );
+
             return res.status(200).send({
                 success: true,
-                message: "Logged in Successfully",
+                message: "Logged in successfully",
                 accessToken: accessToken,
-                admin_name: process.env.ADMIN_NAME
-            })
+                admin_name: process.env.ADMIN_NAME,
+            });
         });
     } catch (err) {
-        res.redirect('/login');
+        console.error("Error during login:", err);
+        return res.status(500).send({
+            success: false,
+            message: "An error occurred. Please try again later.",
+        });
     }
 };
 
