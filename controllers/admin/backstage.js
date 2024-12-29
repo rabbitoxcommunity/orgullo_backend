@@ -26,7 +26,11 @@ module.exports.backstageForm = async (req, res) => {
 
 module.exports.addBackstage = async (req, res) => {
     try {
-        const form = new formidable.IncomingForm({multiples: true});
+        const form = new formidable.IncomingForm({
+            multiples: true,
+            maxFileSize: 50 * 1024 * 1024, 
+            maxFieldsSize: 50 * 1024 * 1024, 
+        });
         await form.parse(req, async (err, fields, files) => {
             if (err) {
                 return res.status(200).send({
